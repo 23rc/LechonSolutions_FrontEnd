@@ -1,0 +1,25 @@
+/* Estilos para el logo */
+.logo {
+    width: 50px; /* Tamaño del logo */
+    margin-right: 5px; /* Espacio entre el logo y el texto */
+  }
+
+.navbar-nav .nav-link {
+    font-size: 15px; /* Ajusta el tamaño de fuente según tu preferencia */
+    top: 0;
+}
+
+.header {
+  z-index: 2; /* Establece un valor de z-index mayor para el encabezado */
+}
+.navbar {
+  position: fixed; /* Fija el navbar en la parte superior de la página */
+  width: 100%; /* Ancho completo del navbar */
+  height: 10%;
+  z-index: 1000; /* Establece un valor de z-index alto para que el navbar esté por encima de otros elementos */
+  transition: background-color 0.3s ease; /* Agrega una transición suave para cambiar el color de fondo */
+  font-size: 10px;
+}
+.navar {
+  background-color: #02011d;/* Cambia #ff0000 al color que desees */
+}

@@ -1,0 +1,9 @@
+<div class="image-gallery">
+    <div class="image-container">
+      <div class="arrow arrow-left" (click)="showPreviousImages()">&#9664;</div>
+      <img [src]="images[currentImageIndex]" alt="Image">
+      <img [src]="images[nextImageIndex]" alt="Image">
+      <div class="arrow arrow-right" (click)="showNextImages()">&#9654;</div>
+    </div>
+  </div>
+  

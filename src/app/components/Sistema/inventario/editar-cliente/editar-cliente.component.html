@@ -1,0 +1,37 @@
+<div class="container">
+    <h4 class="modal-title titulo">Editar Cliente</h4>
+  <div class="modal-body">
+    <!-- Contenido del formulario para editar el usuario -->
+    <form (submit)="guardarCambios()" class="form-flexbox">
+        <div class="form-column">
+        <div class="form-group">
+            <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+            <input type="text" id="nit" name="nit" [(ngModel)]="usuario.nit" class="form-control" placeholder="NIT">
+        </div>
+        <div class="form-group">
+            <input type="text" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" class="form-control" placeholder="Teléfono">
+        </div>
+        <div class="form-group">
+            <input type="text" id="correo" name="correo" [(ngModel)]="usuario.correo" class="form-control" placeholder="Correo">
+        </div>
+        <div class="form-group">
+            <input type="text" id="direccion" name="direccion" [(ngModel)]="usuario.direccion" class="form-control" placeholder="Dirección">
+        </div>
+        <div class="button-container">
+            <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+        </div>
+        <div class="button-container" style="position: relative;">
+            <button type="button" class="btn btn-danger" (click)="cancelar()" style="position: absolute; ">Cancelar</button>
+        </div>
+    </div>
+    </form>
+ 
+    
+  </div>
+
+  </div>
+
+  
+  

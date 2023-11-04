@@ -1,0 +1,177 @@
+.sidebar {
+  background-color: #02011d;
+  color: white;
+  width: 15%;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  z-index: 1;
+}
+body {
+  background-image: url('/assets/fondoInicio.jpeg');
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+  background-repeat: no-repeat; /* Evita la repetición de la imagen */
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  display: block;
+  padding: 5px;
+  width: 80%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+}
+.sub-btn{
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  display: block;
+  padding: 1px;
+  width: 80%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.menu-container:hover,
+.menu-item:hover .sub-menu {
+  display: block;
+}
+
+.sub-menu {
+  margin-left: 10px;
+}
+
+.user-container {
+  padding: 10px;
+  display: flex;
+  margin-top: -30px;
+  align-items: center;
+  flex-direction: column; /* Cambia la dirección del flex container a columna */
+  align-items: center; /* Centra horizontalmente el contenido */
+  margin-bottom: 10px;
+  cursor: pointer; /* Agrega un cursor indicando que es interactivo */
+  transition: background-color 0.2s; /* Agrega una transición suave */
+  position: relative; /* Agrega posición relativa para el contenedor */
+}
+
+.user-container:hover {
+  background-color: #444; /* Cambia el color de fondo al pasar el ratón por encima */
+  border: 1px solid #ccc;
+  border-radius: 30px;
+}
+
+.user-container img {
+  width: 80px; /* Ancho de la imagen en píxeles */
+  height: 80px; /* Altura de la imagen en píxeles */
+  border-radius: 50%;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.user-details {
+  display: none; /* Oculta los detalles de usuario por defecto */
+  flex-direction: column;
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.user-container:hover .user-details {
+  display: block; /* Muestra los detalles al pasar el ratón por encima */
+  margin-top: 10px; /* Agrega margen superior para separar los detalles */
+}
+
+.user-details .user-name {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.user-details .user-role {
+  font-size: 12px;
+}
+
+.content-container {
+  margin-top: 80px;
+}
+
+.user-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 5px solid #ffffff; /* Puedes ajustar el estilo y color de la línea */
+  width: 100%;
+}
+.sub-icono{
+  margin-right: 10px; /* Agrega un espacio entre el icono y el botón */
+  width: 14px;
+}
+.icono {
+  display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+  align-items: center; /* Centra verticalmente los elementos en el contenedor */
+  
+}
+.perfil-image {
+  width: 70px; /* Ancho de la imagen en píxeles */
+    height: 70px; /* Altura de la imagen en píxeles */
+    border-radius: 50%;
+}
+
+.chart-container {
+  margin-left: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tu diseño */
+}
+
+#userStatusChart {
+  /* Estilos adicionales para el lienzo del gráfico si es necesario */
+  display: block; /* Asegura que el canvas sea un bloque para centrarlo verticalmente */
+  margin: 0 auto; /* Centra horizontalmente el canvas en el contenedor */
+  width: 600px;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  z-index: 9999; /* Asegura que esté por encima de la gráfica */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+/* Estilos para la leyenda */
+.chart-container .chartjs-size-monitor-shrink,
+.chart-container .chartjs-size-monitor-expand {
+  opacity: 0; /* Oculta el observador de tamaño del gráfico */
+}
+
+.chart-container .chartjs-chart-legend {
+  background-color: #f9f9f9; /* Cambia el color de fondo de la leyenda */
+  border: 1px solid #ddd; /* Añade un borde a la leyenda */
+  padding: 10px; /* Añade espacio interno a la leyenda */
+  border-radius: 5px; /* Agrega bordes redondeados */
+}
+/* Estilos para el título */
+.chart-container .chartjs-chart-title {
+  font-size: 18px; /* Tamaño de fuente para el título */
+  font-weight: bold; /* Peso de la fuente */
+  color: #333; /* Color del título */
+  margin-bottom: 10px; /* Espacio entre el título y el gráfico */
+}

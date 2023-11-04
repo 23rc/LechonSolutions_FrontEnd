@@ -1,0 +1,107 @@
+
+<head>
+    <title>Nuevo Registro de Control</title>
+</head>
+    <div class="container">
+        <h1 class="titulo">Nuevo Registro de Control</h1>
+        <form (submit)="insertar()" class="form-flexbox">
+            <div class="form-column">
+
+
+              <div class="form-group ">
+                <label for="" >Seleccionar Cerda</label>
+                <select [(ngModel)]="contenedorDB.cerda_id" name="cerda_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreCerda($event)">
+                  <option value="">Seleccionar Cerda</option>
+                  <option *ngFor="let cerda of cerdasList" [value]="cerda.id">{{ cerda.nombre }}</option>
+                </select>
+              </div>
+         
+                
+                <div class="form-group">
+                    <input type="text" id="cerda_id" [(ngModel)]="contenedorDB.cerda_id" name="cerda_id" class="form-control readonly-input " required placeholder="Id de la Cerda" readonly >
+                </div>
+                <div class="form-group">
+                    <input type="text" id="cerda_nombre" [(ngModel)]="contenedorDB.cerda_nombre" name="cerda_nombre" class="form-control readonly-input" required placeholder="Nombre de la cerda" readonly hidden>
+                  </div>
+
+                
+                <div class="form-group">
+                    <input type="text" id="barraco_id" [(ngModel)]="contenedorDB.barraco_id" name="barraco_id" class="form-control readonly-input" required placeholder="Id del barraco" readonly hidden>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="barraco_nombre" [(ngModel)]="contenedorDB.barraco_nombre" name="barraco_nombre" class="form-control readonly-input" required placeholder="Nombre del barraco" readonly hidden>
+                  </div>
+
+                  <div class="form-group2">
+                    <label for="barraco_id">Seleccionar Barraco</label>
+                    <select [(ngModel)]="contenedorDB.barraco_id" name="barraco_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreBarraco($event); contenedorDB.tipo_carga = 'Natural'; contenedorDB.pacha_id = null;contenedorDB.pacha_nombre = '';">
+                      <option [ngValue]="null">Seleccionar Barraco</option>
+                      <option *ngFor="let barraco of barracosList" [value]="barraco.id">{{ barraco.nombre }}</option>
+                    </select>
+                  </div>
+                  
+                <div class="form-group">
+                  <input type="text" id="pacha_id" [(ngModel)]="contenedorDB.pacha_id" name="pacha_id" class="form-control readonly-input" required placeholder="Id de la pacha" readonly hidden>
+              </div>
+              <div class="form-group">
+                <input type="text" id="pacha_nombre" [(ngModel)]="contenedorDB.pacha_nombre" name="pacha_nombre" class="form-control readonly-input" required placeholder="Nombre de la pacha" readonly hidden>
+              </div>
+              <div class="form-group2">
+                <label for="producto_id">Seleccionar Producto</label>
+                <select [(ngModel)]="contenedorDB.pacha_id" name="producto_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreProducto($event); contenedorDB.tipo_carga = 'Inseminación Artificial'; contenedorDB.barraco_id = null; contenedorDB.barraco_nombre = '';">
+                  <option [ngValue]="null">Seleccionar Producto</option>
+                  <option *ngFor="let producto of productosList" [value]="producto.id">{{ producto.nombreProducto }}</option>
+                </select>
+              </div>
+              
+
+
+
+                  <div class="form-group">
+                    <label for="tipo_carga">Tipo de carga</label>
+                    <select [(ngModel)]="contenedorDB.tipo_carga" name="tipo_carga" class="form-control" required disabled>
+                      <option value="">Seleccionar tipo de carga</option>
+                      <option value="Natural">Natural</option>
+                      <option value="Inseminación Artificial">Inseminación Artificial</option>
+                    </select>
+                  </div>
+             
+               
+
+            </div>
+
+            <div class="form-column">
+
+                    <!-- Selector de barracos -->
+                 
+                    <div class="form-group">
+                      <label for="fecha_inseminacion">Fecha de inseminación</label>
+                      <input type="date" id="fecha_inseminacion" [(ngModel)]="contenedorDB.fecha_inseminacion" name="fecha_inseminacion" class="form-control"
+                             (ngModelChange)="calcularFechaConfirmacion()" required placeholder="Fecha de inseminación/Carga">
+                    </div>
+    
+                     
+                      <div class="form-group2">
+                        <label for="fecha_confirmacion_carga">Fecha de confirmación de carga</label>
+                        <input type="date" id="fecha_confirmacion_carga" [(ngModel)]="contenedorDB.fecha_confirmacion_carga" name="fecha_confirmacion_carga"
+                               class="form-control readonly-input" required placeholder="Fecha de confirmación de carga" readonly>
+                      </div>
+        
+                      <div class="form-group2">
+                        <label for="confirmar_carga">Confirmar Estado de Carga</label>
+                        <input type="text" [(ngModel)]="contenedorDB.confirmar_carga" name="confirmar_carga" class="form-control" required placeholder="No Cargada" value="No Cargada" readonly>
+                      </div>
+                <div class="form-group2">
+                    <input type="text" id="observaciones" [(ngModel)]="contenedorDB.observaciones" name="observaciones" class="form-control" required placeholder="Observaciones">
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Insertar</button>
+                  
+                </div>
+                <div class="button-container" style="position: relative;">
+                    <button type="button" class="btn btn-danger" (click)="cancelar()"  style="position: absolute;">Cancelar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+

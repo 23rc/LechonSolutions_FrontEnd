@@ -1,0 +1,118 @@
+<head>
+    <title>Listado de Cerdas</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Cerdas</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+            <button class="nuevoUsuario" (click)="openNuevo()">Nuevo Cerda</button>
+        </div>
+    </header>
+    <main class="content">
+      <div class="search-and-filter">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('nombre')">
+                        <span>NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tetas')">
+                        <span>TETAS</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tetas' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tetas' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('peso')">
+                        <span>PESO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'peso' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'peso' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fechaIngreso')">
+                        <span>FECHA DE INGRESO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fechaIngreso' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fechaIngreso' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('observacion')">
+                        <span>OBSERVACION</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'observacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'observacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <!-- Nuevos campos -->
+                    <th (click)="sortTable('altura')">
+                        <span>ALTURA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'altura' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'altura' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('ubicacion')">
+                        <span>UBICACIÓN</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'ubicacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'ubicacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('estadoSalud')">
+                        <span>ESTADO DE SALUD</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'estadoSalud' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'estadoSalud' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('temperatura')">
+                        <span>TEMPERATURA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'temperatura' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'temperatura' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('ultimaActualizacion')">
+                        <span>ÚLTIMA ACTUALIZACIÓN</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'ultimaActualizacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'ultimaActualizacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <!-- Fin de los nuevos campos -->
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contenedorLocal of visible">
+                    <td class="table-cell-id">{{ contenedorLocal.id }}</td>
+                    <td class="table-cell">{{ contenedorLocal.nombre }}</td>
+                    <td class="table-cell">{{ contenedorLocal.tetas }}</td>
+                    <td class="table-cell">{{ contenedorLocal.peso }}</td>
+                    <td class="table-cell">{{ contenedorLocal.fechaIngreso }}</td>
+                    <td class="table-cell">{{ contenedorLocal.observacion }}</td>
+                    <!-- Nuevos campos -->
+                    <td class="table-cell">{{ contenedorLocal.altura }}</td>
+                    <td class="table-cell">{{ contenedorLocal.ubicacion }}</td>
+                    <td class="table-cell">{{ contenedorLocal.estadoSalud }}</td>
+                    <td class="table-cell">{{ contenedorLocal.temperatura }}</td>
+                    <td class="table-cell">{{ contenedorLocal.ultimaActualizacion }}</td>
+                    <!-- Fin de los nuevos campos -->
+                    <td class="table-cell-acciones">
+                        <button class="delete-button" (click)="showDeleteConfirmation(contenedorLocal)">Eliminar</button>
+                        <button class="edit-button" (click)="editar(contenedorLocal)">Editar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar la cerda {{ ToDelete?.nombre }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+
+
+
+
+

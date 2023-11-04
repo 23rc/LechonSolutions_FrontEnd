@@ -1,0 +1,161 @@
+<p>control-cerda works!</p>
+
+<head>
+    <title>Listado Pendientes de Confirmar</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Listado Pendientes de Confirmar</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+
+        </div>
+    </header>
+    <main class="content">
+      <div class="status-and-search">
+        <div class="status-indicators">
+            <div class="status-indicator">
+                <div class="status-circle gris"></div>
+                <div class="status-label">Pasado</div>
+              </div>
+          <div class="status-indicator">
+            <div class="status-circle proximo"></div>
+            <div class="status-label">Próximo</div>
+          </div>
+          <div class="status-indicator">
+            <div class="status-circle anaranjado"></div>
+            <div class="status-label">Más de 2 días</div>
+          </div>
+          <div class="status-indicator">
+            <div class="status-circle verde"></div>
+            <div class="status-label">Más de 8 días</div>
+          </div>
+       
+        </div>
+        <div class="search-and-filter">
+          <input type="text" [(ngModel)]="searchText" placeholder="Buscar..." class="clear-background">
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cerda_id')">
+                        <span>ID/CERDA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cerda_nombre')">
+                        <span>CERDA NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('barraco_id')">
+                        <span>ID/BARRACO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'barraco_id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'barraco_id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('barraco_nombre')">
+                        <span>BARRACO NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'barraco_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'barraco_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('producto_id')">
+                        <span>ID/PACHA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'producto_id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'producto_id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('producto_nombre')">
+                        <span>NOMBRE PACHA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'producto_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'producto_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tipo_carga')">
+                        <span>TIPO DE CARGA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipo_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipo_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_inseminacion')">
+                        <span>FECHA DE INSEMINACIÓN</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_inseminacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_inseminacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_confirmacion_carga')">
+                        <span>FECHA DE CONFIRMACIÓN DE CARGA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_confirmacion_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_confirmacion_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('confirmar_carga')">
+                        <span>CONFIRMAR CARGA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'confirmar_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'confirmar_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('observaciones')">
+                        <span>OBSERVACIONES</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'observaciones' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'observaciones' && sortDirection === -1}">&#8597;</span>
+
+            </thead>
+            <tbody>
+              <tr *ngFor="let ContenedorLocal of visible">
+                
+                <td class="table-cell-id" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.id === null || ContenedorLocal.id === '') ? 'NULL' : ContenedorLocal.id }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.cerda_id === null || ContenedorLocal.cerda_id === '') ? 'NULL' : ContenedorLocal.cerda_id }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.cerda_nombre === null || ContenedorLocal.cerda_nombre === '') ? 'NULL' : ContenedorLocal.cerda_nombre }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.barraco_id === null || ContenedorLocal.barraco_id === '') ? 'NULL' : ContenedorLocal.barraco_id }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.barraco_nombre === null || ContenedorLocal.barraco_nombre === '') ? 'NULL' : ContenedorLocal.barraco_nombre }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.producto_id === null || ContenedorLocal.producto_id === '') ? 'NULL' : ContenedorLocal.producto_id }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.producto_nombre === null || ContenedorLocal.producto_nombre === '') ? 'NULL' : ContenedorLocal.producto_nombre }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.tipo_carga === null || ContenedorLocal.tipo_carga === '') ? 'NULL' : ContenedorLocal.tipo_carga }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.fecha_inseminacion === null || ContenedorLocal.fecha_inseminacion === '') ? 'NULL' : ContenedorLocal.fecha_inseminacion }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.fecha_confirmacion_carga === null || ContenedorLocal.fecha_confirmacion_carga === '') ? 'NULL' : ContenedorLocal.fecha_confirmacion_carga }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.confirmar_carga === null || ContenedorLocal.confirmar_carga === '') ? 'NULL' : ContenedorLocal.confirmar_carga }}
+                </td>
+                <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_confirmacion_carga)">
+                  {{ (ContenedorLocal.observaciones === null || ContenedorLocal.observaciones === '') ? 'NULL' : ContenedorLocal.observaciones }}
+                </td>
+              </tr>
+            </tbody>
+            
+              
+        </table>
+        
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el barraco {{ ToDelete?.nombre }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+
+
+
+

@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <h4 class="modal-title titulo">Editar Temperatura</h4>
+    <div class="modal-body">
+      <!-- Contenido del formulario para editar el usuario -->
+      <form (submit)="guardarCambios()" class="form-flexbox">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha" [(ngModel)]="usuario.fecha" class="form-control" placeholder="Fecha ">
+          </div>
+          <div class="form-group">
+            <label for="peso">Peso:</label>
+            <input type="text" id="peso" name="peso" [(ngModel)]="usuario.peso" class="form-control" placeholder="Peso">
+          </div>
+          <div class="form-group">
+            <label for="m_h">Genero:</label>
+            <input type="text" id="m_h" name="m_h" [(ngModel)]="usuario.m_h" class="form-control" placeholder="Genero">
+          </div>
+          <div class="form-group">
+            <label for="estado">Estado:</label>
+            <input type="text" id="estado" name="estado" [(ngModel)]="usuario.estado" class="form-control" placeholder="Estado">
+          </div>
+          <!-- Botón Guardar Cambios -->
+          <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+          <!-- Botón Cancelar -->
+          <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

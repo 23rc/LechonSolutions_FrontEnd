@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <h4 class="modal-title titulo">Editar Tratamiento</h4>
+    <div class="modal-body">
+      <!-- Contenido del formulario para editar el usuario -->
+      <form (submit)="guardarCambios()" class="form-flexbox">
+        <div class="form-column">
+          <div class="form-group">
+            <label for="fecha_aplicacion">Fecha de Aplicación:</label>
+            <input type="date" id="fecha_aplicacion" name="fecha_aplicacion" [(ngModel)]="usuario.fecha_aplicacion" class="form-control" placeholder="Fecha de aplicación">
+          </div>
+          <div class="form-group">
+            <label for="producto">Producto:</label>
+            <input type="text" id="producto" name="producto" [(ngModel)]="usuario.producto" class="form-control" placeholder="Producto">
+          </div>
+          <div class="form-group">
+            <label for="dosis">Dosis:</label>
+            <input type="text" id="dosis" name="dosis" [(ngModel)]="usuario.dosis" class="form-control" placeholder="Dosis">
+          </div>
+          <div class="form-group">
+            <label for="causa">Causa:</label>
+            <input type="text" id="causa" name="causa" [(ngModel)]="usuario.causa" class="form-control" placeholder="Causa">
+          </div>
+          <!-- Botón Guardar Cambios -->
+          <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+          <!-- Botón Cancelar -->
+          <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

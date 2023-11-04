@@ -1,0 +1,54 @@
+<div class="container">
+    <h4 class="modal-title titulo">Nuevo Temperatura</h4>
+    <div class="modal-body">
+      <!-- Contenido del formulario para editar el contenedorDB -->
+      <form (submit)="insertar()" class="form-flexbox">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="numero_partoP">NUMERO DE PARTO</label>
+            <input type="text" id="numero_partoP" name="numero_partoP" [(ngModel)]="parametro.numero_partoP" class="form-control" placeholder="Numero de parto" disabled>
+          </div>
+  
+          <div class="form-group">
+            <label for="id_cerda">ID/CERDA</label>
+            <input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="parametro.id_cerda" class="form-control" placeholder="ID_CERDA" disabled>
+          </div>
+  
+          <div class="form-group">
+            <label for="cerda_nombre">NOMBRE DE LA CERDA</label>
+            <input type="text" id="cerda_nombre" name="cerda_nombre" [(ngModel)]="parametro.cerda_nombre" class="form-control" placeholder="NOMBRE/CERDA" disabled >
+          </div>
+          
+          <div class="form-group">
+            <label for="fechaT">Fecha:</label>
+            <input type="date" id="fechaT" name="fechaT" [(ngModel)]="contenedorDB.fechaT" class="form-control" placeholder="Fecha">
+          </div>
+  
+          <div class="form-group">
+            <label for="temperaturaT">Temperatura:</label>
+            <input type="text" id="temperaturaT" name="temperaturaT" [(ngModel)]="contenedorDB.temperaturaT" class="form-control" placeholder="Temperatura">
+          </div>
+  
+          <div class="form-group">
+            <label for="horaT">Hora:</label>
+            <input type="text" id="horaT" name="horaT" [(ngModel)]="contenedorDB.horaT" class="form-control" placeholder="Hora">
+          </div>
+  
+          <div class="form-group">
+            <label for="observacionT">Observacion:</label>
+            <input type="text" id="observacionT" name="observacionT" [(ngModel)]="contenedorDB.observacionT" class="form-control" placeholder="observacionT">
+          </div>
+  
+          <div class="form-group">
+            <label for="id">ID/INFO/PARTO:</label>
+            <input type="text" id="id" name="id" [(ngModel)]="partoData.id" class="form-control" placeholder="ID/INFO/PARTO">
+          </div>
+        </div>
+        <!-- Botón Guardar Cambios -->
+        <button type="button" class="btn btn-primary" (click)="insertar()">Guardar Cambios</button>
+        <!-- Botón Cancelar -->
+        <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  

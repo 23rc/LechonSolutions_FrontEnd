@@ -1,0 +1,94 @@
+<head>
+    <title>Listado de Productos</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Productos</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+
+        </div>
+    </header>
+    <main class="content">
+      <div class="search-and-filter">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('nombreProducto')">
+                        <span>NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombreProducto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombreProducto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tipoProducto')">
+                        <span>TIPO DE PRODUCTO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipoProducto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipoProducto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('descripcion')">
+                        <span>DESCRIPCIÓN</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'descripcion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'descripcion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('precio')">
+                        <span>PRECIO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'precio' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'precio' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('stock')">
+                        <span>STOCK</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'stock' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'stock' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fechaVencimiento')">
+                        <span>FECHA DE VENCIMIENTO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fechaVencimiento' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fechaVencimiento' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('proveedorID')">
+                        <span>ID DEL PROVEEDOR</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'proveedorID' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'proveedorID' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of visible">
+                    <td class="table-cell-id">{{ producto.id }}</td>
+                    <td class="table-cell">{{ producto.nombreProducto }}</td>
+                    <td class="table-cell">{{ producto.tipoProducto }}</td>
+                    <td class="table-cell">{{ producto.descripcion }}</td>
+                    <td class="table-cell">{{ producto.precio }}</td>
+                    <td class="table-cell">{{ producto.stock }}</td>
+                    <td class="table-cell">{{ producto.fechaVencimiento }}</td>
+                    <td class="table-cell">{{ producto.proveedorID }}</td>
+                    <!-- Agregar más celdas según los campos de tu tabla -->
+                    <td class="table-cell-acciones">
+                        <button class="delete-button" (click)="showDeleteConfirmation(producto)">Eliminar</button>
+                        <button class="edit-button" (click)="editar(producto)">Editar</button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el producto {{ ToDelete?.nombreProducto }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class= "cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>

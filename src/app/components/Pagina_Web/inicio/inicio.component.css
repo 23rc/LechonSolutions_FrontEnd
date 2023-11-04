@@ -1,0 +1,41 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/assets/fondo1 (2).jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Estilos de encabezado */
+.hero {
+    background: rgba(0, 0, 0, 0.262);
+    padding: 40px 0;
+}
+
+.hero-title {
+    font-size: 36px;
+    margin: 20px 0;
+}
+
+.hero-description {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+}

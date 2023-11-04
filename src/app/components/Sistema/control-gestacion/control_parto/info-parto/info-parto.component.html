@@ -1,0 +1,128 @@
+
+<head>
+    <title>Listado de InfoParto</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Listado De Información de Partos</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+
+        </div>
+    </header>
+    <main class="content">
+      <div class="search-and-filter">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_control_cerdaP')">
+                        <span>ID Control Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_control_cerdaP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_control_cerdaP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_cerdaP')">
+                        <span>ID Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerdaP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerdaP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('numero_partoP')">
+                        <span>Número de Parto</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_partoP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_partoP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cerda_nombreP')">
+                        <span>Nombre de Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombreP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombreP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_posible_partoP')">
+                        <span>Fecha Posible de Parto</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_posible_partoP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_posible_partoP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tetasP')">
+                        <span>Tetas</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tetasP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tetasP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tipo_cargaP')">
+                        <span>Tipo de Carga</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipo_cargaP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipo_cargaP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('nombre_barracoP')">
+                        <span>Nombre de Barraco</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombre_barracoP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombre_barracoP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('pacha_nombreP')">
+                        <span>Nombre de Pacha</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'pacha_nombreP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'pacha_nombreP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('pesoP')">
+                        <span>Peso</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'pesoP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'pesoP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('pesoFinalP')">
+                        <span>Peso Final</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'pesoFinalP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'pesoFinalP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('perdidaPesoP')">
+                        <span>Pérdida de Peso</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'perdidaPesoP' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'perdidaPesoP' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('atendidoPor')">
+                        <span>Atendido Por</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'atendidoPor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'atendidoPor' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr *ngFor="let infoParto of visible">
+                    <td class="table-cell">{{ infoParto.id || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.id_control_cerdaP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.id_cerdaP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.numero_partoP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.cerda_nombreP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.fecha_posible_partoP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.tetasP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.tipo_cargaP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.nombre_barracoP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.pacha_nombreP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.pesoP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.pesoFinalP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.perdidaPesoP || 'null' }}</td>
+                    <td class="table-cell">{{ infoParto.atendidoPor || 'null' }}</td>
+                    <td class="table-cell-acciones">
+                        <button class="delete-button" (click)="showDeleteConfirmation(infoParto)">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el barraco {{ ToDelete?.nombre }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+
+
+
+

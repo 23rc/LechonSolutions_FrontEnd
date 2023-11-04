@@ -1,0 +1,62 @@
+<div class="container">
+  <h4 class="modal-title titulo">Editar Usuario</h4>
+<div class="modal-body">
+  <!-- Contenido del formulario para editar el usuario -->
+  <form (submit)="guardarCambios()" class="form-flexbox">
+  
+    <div class="form-column">
+      <div class="form-group">
+        <input type="text" id="codigo_camada" name="codigo_camada" [(ngModel)]="usuario.codigo_camada" class="form-control" placeholder="Código de camada">
+      </div>
+      <div class="form-group">
+        <input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="usuario.id_cerda" class ="form-control" placeholder="ID de cerda">
+      </div>
+      <div class="form-group">
+        <input type="text" id="numero_parto" name="numero_parto" [(ngModel)]="usuario.numero_parto" class="form-control" placeholder="Número de parto">
+      </div>
+      <div class="form-group">
+        <input type="text" id="cerda_nombre" name="cerda_nombre" [(ngModel)]="usuario.cerda_nombre" class="form-control" placeholder="Nombre de cerda">
+      </div>
+      <div class="form-group">
+        <input type="text" id="tip_carga" name="tip_carga" [(ngModel)]="usuario.tip_carga" class="form-control" placeholder="Tipo de carga">
+      </div>
+      <div class="form-group">
+        <input type="text" id="barraco_nombre" name="barraco_nombre" [(ngModel)]="usuario.barraco_nombre" class="form-control" placeholder="Nombre de barraco">
+      </div>
+      <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+    </div>
+
+
+
+    <div class="form-column">
+    
+      <div class="form-group">
+        <input type="text" id="pacha_nombre" name="pacha_nombre" [(ngModel)]="usuario.pacha_nombre" class="form-control" placeholder="Nombre de pacha">
+      </div>
+      <div class="form-group">
+        <input type="date" id="fecha_parto" name="fecha_parto" [(ngModel)]="usuario.fecha_parto" class="form-control" placeholder="Fecha de parto">
+      </div>
+      <div class="form-group">
+        <input type="date" id="fecha_destete" name="fecha_destete" [(ngModel)]="usuario.fecha_destete" class="form-control" placeholder="Fecha de destete">
+      </div>
+      <div class="form-group">
+        <input type="text" id="lechones" name="lechones" [(ngModel)]="usuario.lechones" class="form-control" placeholder="Número de lechones">
+      </div>
+      <div class="form-group">
+        <input type="text" id="id_destete" name="id_destete" [(ngModel)]="usuario.id_destete" class="form-control" placeholder="ID de destete">
+      </div>
+      <div class="form-group">
+        <input type="number" id="precio_unidad" name="precio_unidad" [(ngModel)]="usuario.precio_unidad" class="form-control" placeholder="Precio por unidad">
+      </div>
+      <div class="button-container">
+      
+        <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      </div>
+    </div>
+    
+</form>
+
+</div>
+</div>
+
+

@@ -1,0 +1,118 @@
+
+<head>
+    <title>Listado de Destetes</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Control de destete</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+        </div>
+    </header>
+    <main class="content">
+      <div class="search-and-filter">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_cerda')">
+                        <span>ID CERDA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('numero_parto')">
+                        <span>NUMERO/PARTO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cerda_nombre')">
+                        <span>NOMBRE/CERDA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tipo_carga')">
+                        <span>TIPO DE CARGA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipo_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipo_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('barraco_nombre')">
+                        <span>ALTURA</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'barraco_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'barraco_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('pacha_nombre')">
+                        <span>PACHA/NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'pacha_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'pacha_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_parto')">
+                        <span>FECHA/PARTO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_destete')">
+                        <span>FECHA/DESTETE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_destete' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_destete' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cantidad_destetar')">
+                        <span>CANTIDAD A DESTETAR</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cantidad_destetar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cantidad_destetar' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('atendidoPor')">
+                        <span>ATENDIDO POR</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'atendidoPor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'atendidoPor' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('estado')">
+                        <span>ESTADO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'estado' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'estado' && sortDirection === -1}">&#8597;</span>
+                    </th>
+  
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let contenedorLocal of visible">
+                  <td class="table-cell">{{ contenedorLocal.id || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.id_cerda || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.numero_parto || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.cerda_nombre || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.tipo_carga || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.barraco_nombre || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.pacha_nombre || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.fecha_parto || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.fecha_destete || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.cantidad_destetar || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.atendidoPor || 'null' }}</td>
+                  <td class="table-cell">{{ contenedorLocal.estado || 'null' }}</td>
+                  <td class="table-cell-acciones">
+                    <button class="edit-button" (click)="cargarLechones(contenedorLocal)">agregar</button>
+                    <button class="delete-button" (click)="showDeleteConfirmation(contenedorLocal)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+              
+        </table>
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el destete {{ ToDelete?.id }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>
+
+
+
+
+

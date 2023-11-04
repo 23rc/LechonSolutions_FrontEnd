@@ -1,0 +1,86 @@
+<head>
+    <title>Listado de Proveedores</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Proveedores</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+
+        </div>
+    </header>
+    <main class="content">
+      <div class="search-and-filter">
+        <input type="text" [(ngModel)]="searchText" placeholder="Buscar...">
+      </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('nombreProveedor')">
+                        <span>NOMBRE</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombrenombreProveedor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombrenombreProveedor' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('telefono')">
+                        <span>TELEFONO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'telefono' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'telefono' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('email')">
+                        <span>CORREO</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'email' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'email' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('direccion')">
+                        <span>DIRECCION</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'direccion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'direccion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('ciudad')">
+                        <span>CIUDAD</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'ciudad' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'ciudad' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    
+                    <th>Acciones</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let contenedorDB of visible">
+                    <td class="table-cell-id">{{ contenedorDB.id }}</td>
+                    <td class="table-cell">{{ contenedorDB.nombreProveedor }}</td>
+                    <td class="table-cell">{{ contenedorDB.telefono}}</td>
+                    <td class="table-cell">{{ contenedorDB.email }}</td>
+                    <td class="table-cell">{{ contenedorDB.direccion }}</td>
+                    <td class="table-cell">{{ contenedorDB.ciudad }}</td>
+
+                    <!-- Agregar más celdas según los campos de tu tabla -->
+                    <td class="table-cell-acciones">
+                        <button class="delete-button" (click)="showDeleteConfirmation(contenedorDB)">Eliminar</button>
+                        <button class="edit-button" (click)="editar(contenedorDB)">Editar</button>
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el proveedor {{ ToDelete?.nombreProducto }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class= "cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+    </main>
+</body>

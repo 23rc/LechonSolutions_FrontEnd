@@ -1,0 +1,134 @@
+
+  <!-- Contenido de tu componente -->
+  <div class="container">
+    <h4>Facturación</h4>
+    
+    <!-- Sección de selección de barraco y cliente -->
+    <div class="selection-section">
+      <div class="barraco-selection">
+        <label for="camadaSelector">Selecciona una camada:</label>
+        <select id="camadaSelector" (change)="seleccionarCamada($event)">
+          <option value="">Selecciona una camada</option>
+          <option value="ocultar">Ocultar Camada</option> <!-- Agrega esta opción -->
+          <option *ngFor="let camada of camadas" [value]="camada.id">{{ camada.codigo_camada }}</option>
+        </select>
+        <!-- Agregar botón para seleccionar más camadas -->
+      </div>
+      
+ 
+  
+      <div class="cliente-selection">
+        <label for="clienteSelector">Selecciona un cliente:</label>
+        <select id="clienteSelector" (change)="seleccionarCliente($event)">
+          <option value="">Selecciona un cliente</option>
+          <option value="ocultar">Ocultar Cliente</option> <!-- Agrega esta opción -->
+          <option *ngFor="let cliente of clientes" [value]="cliente.id">{{ cliente.nombre }}</option>
+        </select>
+        <button (click)="alternarCamposNuevoCliente()">
+          {{ mostrarCamposNuevoCliente ? 'Ocultar Campos' : 'Agregar Nuevo Cliente' }}
+        </button>
+      </div>
+    </div>
+  
+    <!-- Sección de detalles de barraco y cliente -->
+    <div class="details-section">
+      <div class="barraco-details">
+        <ng-container *ngIf="camadaSeleccionada">
+          <h6>Detalles del Lechones</h6>
+          <label for="camadaNombre">Codigo Camada:</label>
+          <input type="text" id="camadacodigo_camada" [value]="camadaSeleccionada.codigo_camada" readonly>
+          <label for="camadaPeso">Nombre Cerda:</label>
+          <input type="text" id="camadacerda_nombre" [value]="camadaSeleccionada.cerda_nombre" readonly>
+          <label for="camadaPrecio">Existencia:</label>
+          <input type="text" id="camadalechones" [value]="camadaSeleccionada.lechones" readonly>
+          <label for="camadaPrecio">Precio Unitario:</label>
+          <input type="text" id="camadalechones" [value]="camadaSeleccionada.precio_unidad" readonly>
+          <label for="camadaVender">Cantidad a vender:</label>
+          <input type="text" id="camadaVender" [(ngModel)]="camadaSeleccionada.vender">
+   
+          <!-- Agrega más detalles aquí según tus necesidades -->
+          <button (click)="agregarCamadaFactura()">Agregar a la factura</button>
+        </ng-container>
+      </div>
+  
+      <div class="cliente-details">
+        <ng-container *ngIf="mostrarCamposClienteExistente && clienteSeleccionado">
+          <h6>Detalles del Cliente</h6>
+          <label for="clienteNit">Nit:</label>
+          <input type="text" id="clienteNit" [value]="clienteSeleccionado.nit" readonly>
+          <label for="clienteNombre">Nombre:</label>
+          <input type="text" id="clienteNombre" [value]="clienteSeleccionado.nombre" readonly>
+          <label for="clienteTelefono">Telefono:</label>
+          <input type="text" id="clienteTelefono" [value]="clienteSeleccionado.telefono" readonly>
+          <label for="clienteCorreo">Correo:</label>
+          <input type="text" id="clienteCorreo" [value]="clienteSeleccionado.correo" readonly>
+          <label for="clienteDireccion">Dirección:</label>
+          <input type="text" id="clienteDireccion" [value]="clienteSeleccionado.direccion" readonly>
+          <!-- Agrega más detalles aquí según tus necesidades -->
+        </ng-container>
+        <div *ngIf="  mostrarCamposNuevoCliente" class="nuevo-cliente-inputs">
+          <label for="nuevoClienteNit">Nit:</label>
+          <input type="text" id="nuevoClienteNit" [(ngModel)]="nuevoCliente.nit">
+          
+          <label for="nuevoClienteNombre">Nombre:</label>
+          <input type="text" id="nuevoClienteNombre" [(ngModel)]="nuevoCliente.nombre">
+          
+          <label for="nuevoClienteTelefono">Telefono:</label>
+          <input type="text" id="nuevoClienteTelefono" [(ngModel)]="nuevoCliente.telefono">
+          
+          <label for="nuevoClienteCorreo">Correo:</label>
+          <input type="text" id="nuevoClienteCorreo" [(ngModel)]="nuevoCliente.correo">
+          
+          <label for="nuevoClienteDireccion">Dirección:</label>
+          <input type="text" id="nuevoClienteDireccion" [(ngModel)]="nuevoCliente.direccion">
+        </div>
+      </div>
+  
+    </div>
+  
+  <!-- Sección de factura -->
+  <!-- Sección de factura -->
+  <div class="factura" >
+    <h5>Factura</h5>
+    
+    <!-- Lista de ítems facturados como tabla -->
+   <!-- Lista de ítems facturados como tabla -->
+  <table class="factura-table">
+    <thead>
+      <tr>
+        <th>Codigo</th>
+        <th>Nombre de la Cerda</th>
+        <th>Cantidad Existente</th>
+        <th>Precio</th>
+        <th>Cantidad a Vender</th>
+        <th>Acciones</th> <!-- Nueva columna para botones de eliminar -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsFacturaCamada; let i = index">
+        <td class="factura-cell">{{ item.codigo_camada }}</td>
+        <td class="factura-cell">{{ item.cerda_nombre }}</td>
+        <td class="factura-cell">{{ item.lechones }}</td>
+        <td class="factura-cell">{{ item.precio_unidad }}</td>
+        <td class="factura-cell">{{ item.vender }}</td>
+
+        <td class="factura-cell">
+          <button (click)="eliminarItemFactura(i)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    <!-- Total de la factura -->
+    <p>Total: {{ calcularTotalFactura() }}</p>
+    
+    <!-- Botón de Facturar -->
+    <button id="botonFacturar" (click)="facturar()">Facturar</button>
+    <p *ngIf="facturado">Facturado con éxito.</p>
+  
+  </div>
+  
+  </div>
+
+
+
+

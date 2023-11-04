@@ -1,0 +1,183 @@
+.container {
+  width: 800px;
+  height: 550px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0) url('/assets/formulario.jpg') ;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 12px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+.form-group1 {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+  margin-left: 19px;
+  margin-right: 17px;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 100px;
+  margin-left: 355px;
+  width: 140px;
+  font-size: 14px;
+}
+.btn-danger:hover {
+  background-color: #6a60f0;
+}
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 200px;
+  margin-top: 381px;
+  width: 140px;
+  font-size: 14px;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Establece estilos para la flecha indicadora de FontAwesome */
+.select-indicator {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Ajusta el espacio entre la flecha y el borde derecho */
+  transform: translateY(-50%);
+  pointer-events: none; /* Evita que la flecha sea clickeable */
+  color: #555; /* Color de la flecha */
+}
+
+.form-flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  flex: 1;
+  padding: 10px;
+}
+
+/*ETIQUETAS O PESTAÑAS DE PERMISOS*/
+.switch-label {
+  /* Configura el contenedor de cada pestaña */
+  position: relative;
+  display: inline-block;
+  width: auto; /* Ancho automático para ajustarse al contenido */
+  height: 12px;
+  margin-right: 10px;
+  vertical-align: middle; /* Alinea verticalmente el contenido */
+}
+
+.switch-label input[type="checkbox"] {
+  opacity: 0; /* Oculta el checkbox por defecto */
+  width: 0;
+  height: 0;
+}
+
+/* Estilos para el interruptor deslizante */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+  margin-left: 70px;
+  width: 40px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  left: 5px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+/* Estilo cuando el checkbox está marcado */
+input[type="checkbox"]:checked + .slider {
+  background-color: #2196F3;
+}
+
+/* Estilo cuando el checkbox tiene el enfoque */
+input[type="checkbox"]:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+/* Estilo para el indicador dentro del interruptor deslizante */
+input[type="checkbox"]:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Estilo de borde para el interruptor */
+.switch-label input[type="checkbox"] ~ .slider {
+  border: 1px solid #ccc;
+}
+
+/* Estilo de borde para el interruptor cuando está marcado */
+.switch-label input[type="checkbox"]:checked ~ .slider {
+  border: 1px solid #2196F3;
+}
+
+/* Organiza los interruptores en dos columnas */
+.form-group-column {
+  width: 50%;
+  float: left;
+  box-sizing: border-box;
+  padding-right: 15px;
+}
+
+/* Alinea verticalmente el texto de las pestañas */
+.label-text {
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: -5px; /* Añade espacio entre el checkbox y el texto */
+  font-size: 12px;
+}
+.perfil-container {
+  width: 20px; /* Establece el ancho deseado */
+  height: 20px; /* Establece la altura deseada */
+}
+
+.perfil-image {
+  width: 20%; /* Para asegurarte de que la imagen se ajuste al tamaño del contenedor */
+  height: 20%;
+  object-fit: cover; /* Para recortar la imagen si tiene proporciones diferentes */
+}

@@ -1,0 +1,433 @@
+<div class="container">
+  <h4 class="modal-title titulo">{{ modoEdicion ? 'Editar' : 'Nuevo' }} Parto</h4>
+    
+  <div class="modal-body">
+    <!-- Contenido del formulario para editar el usuario -->
+    <form (submit)="insertarInfoParto()" class="form-flexbox">
+<!-------------------------------------- PRIMER TABLA--------------------------------------------->
+        <div class="form-column">
+          <button *ngIf="modoEdicion" type="button" class="btn botonDinamico btn-successi" (click)="alternarModoEdicion()">
+            Bloquear
+          </button>
+          <button *ngIf="!modoEdicion" type="button" class="btn botonDinamico btn-primaryi-left" (click)="alternarModoEdicion()">
+           Nuevo Parto
+          </button>
+          <table class="primer_tabla">
+            <tr>
+              <td class="label-cell">NUMERO DE PARTO</td>
+              <td class="data-cell">
+                <input type="text" id="numero_partoP" name="numero_partoP" [(ngModel)]="partoData.numero_partoP" class="form-control"  placeholder="NUMERO DE PARTO" [disabled]="!modoEdicion">
+              </td>
+
+            </tr>
+            <tr>
+              <td class="label-cell">ID CERDA:</td>
+              <td class="data-cell">
+                <input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="usuario.id_cerda" class="form-control"  placeholder="ID DE LA CERDA" disabled  >
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="label-cell">NOMBRE/CERDA:</td>
+              <td class="data-cell">
+                <input type="text" id="cerda_nombre" name="cerda_nombre" [(ngModel)]="usuario.cerda_nombre" class="form-control" placeholder="NOMBRE DE LA CERDA" disabled>
+              </td>
+            </tr>
+            <tr>
+              <td class="label-cell">FECHA/PARTO:</td>
+              <td class="data-cell">
+                <input type="date" id="fecha_posible_parto" name="fecha_posible_parto" [(ngModel)]="usuario.fecha_posible_parto" Class="form-control" placeholder="Fecha de Posible Parto" [disabled]="!modoEdicion">
+              </td>
+            </tr>
+            <tr>
+              <td class="label-cell">TETAS/DISPONIBLES:</td>
+              <td class="data-cell">
+                <input type="text" id="tetas" name="tetas" [(ngModel)]="infoPartoData.tetas" class="form-control" placeholder="Tetas Disponibles" [disabled]="!modoEdicion">
+              </td>
+            </tr>
+            <tr>
+              <td class="label-cell">Atendido Por:</td>
+              <td class="data-cell">
+                <input type="text" id="atendidoPor" name="atendidoPor" [(ngModel)]="infoPartoData.atendidoPor" class="form-control" placeholder="atendidoPor" [disabled]="!modoEdicion">
+              </td>
+            </tr>
+          </table>
+          <div class=" espacio"></div>
+          <div class=" espacio"></div>
+  
+          
+<!-------------------------------------- SEGUNDA TABLA--------------------------------------------->
+          <table class="segunda_tabla2">
+            <tr>
+              <th>ID/CERDA</th>
+              <th>TIPO/CARGA</th>
+              <th>NOMBRE/BARRACO</th>
+              <th>NOMBRE/PACHA</th>
+              <th>PESO</th>
+              <th>PESO/FINAL</th>
+              <th>PERDIDA/PESO</th>
+            </tr>
+            <tr>
+              <td><input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="usuario.id_cerda" class="form-control" placeholder="ID Cerda" disabled></td>
+              <td><input type="text" id="tipo_carga" name="tipo_carga" [(ngModel)]="usuario.tipo_carga" class="form-control" placeholder="Tipo de Carga" [disabled]="!modoEdicion"></td>
+              <td><input type="text" id="nombre_barraco" name="nombre_barraco" [(ngModel)]="usuario.barraco_nombre" class="form-control" placeholder="Nombre Barraco" [disabled]="!modoEdicion"></td>
+              <td><input type="text" id="pacha_nombre" name="pacha_nombre" [(ngModel)]="usuario.pacha_nombre" class="form-control" placeholder="Nombre Pacha" [disabled]="!modoEdicion"></td>
+              <td><input type="text" id="peso" name="peso" [(ngModel)]="infoPartoData.peso" class="form-control" placeholder="Peso" (input)="calcularDiferenciaDePeso()" [disabled]="!modoEdicion"></td>
+              <td><input type="text" id="pesoFinal" name="pesoFinal" [(ngModel)]="infoPartoData.pesoFinal" class="form-control" placeholder="PesoFinal" (input)="calcularDiferenciaDePeso()" [disabled]="!modoEdicion"></td>
+              <td>{{ infoPartoData.perdidaPeso }}</td>
+            </tr>
+         
+          </table>
+          <div class="form-group">
+            <label for="observaciones" class="form-controlL">Observaciones:</label>
+            <input type="text" id="observaciones" name="observaciones" [(ngModel)]="usuario.observaciones" class="form-controlO" placeholder="Observaciones" [disabled]="!modoEdicion">
+          </div>
+ 
+<!-------------------------------------- TABLA TRATAMIENTOS--------------------------------------------->
+
+          <div class="table-containerTratamiento">
+            <div class="header">
+              <label for="" class="titulos">TRATAMIENTO PARA LA CERDA</label>
+              <button type="button" class="nuevo" (click)="nuevoTratamiento(usuario)">Nuevo Tratamiento</button>
+            </div>
+            <div class="table-scroll">
+              <table class="tableTratamiento">
+                <thead class="table-head"> <!-- Agregamos la clase "table-head" al encabezado -->
+                  <tr>
+                    <th (click)="sortTable('id')">
+                      <span>ID</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('numero_parto')">
+                      <span>NO.PARTO</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_cerda')">
+                      <span>ID/CERDA</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('cerda_nombre')">
+                      <span>NOMBRE/CERDA</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_aplicacion')">
+                      <span>FECHA/APLICACION</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_aplicacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_aplicacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('producto')">
+                      <span>PRODUCTO</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'producto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'producto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('dosis')">
+                      <span>DOSIS</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'dosis' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'dosis' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('causa')">
+                      <span>CAUSA</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'causa' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'causa' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_info_parto')">
+                      <span>INFO/PARTO</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_info_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_info_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('eliminar')">
+                      <span>ELIMINAR</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'eliminar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'eliminar' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('editar')">
+                      <span>EDITAR</span>
+                      <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'editar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'editar' && sortDirection === -1}">&#8597;</span>
+                    </th>
+   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let Tratamiento of Tratamiento" [ngClass]="getClassForCondition(Tratamiento.numero_parto, Tratamiento.id_cerda, usuario.numero_partoP, usuario.id_cerda)">
+                    <td class="table-cell">{{ Tratamiento.id }}</td>
+                    <td class="table-cell">{{ Tratamiento.numero_parto }}</td>
+                    <td class="table-cell">{{ Tratamiento.id_cerda }}</td>
+                    <td class="table-cell">{{ Tratamiento.cerda_nombre }}</td>
+                    <td class="table-cell">{{ Tratamiento.fecha_aplicacion | date:'yyyy-MM-dd' }}</td>
+                    <td class="table-cell">{{ Tratamiento.producto }}</td>
+                    <td class="table-cell">{{ Tratamiento.dosis }}</td>
+                    <td class="table-cell">{{ Tratamiento.causa }}</td>
+                    <td class="table-cell">{{ Tratamiento.id_info_parto }}</td>
+                    <td class="table-cell-acciones">
+                      <button type="button" class="delete-button" (click)="abrirModalTratamiento(Tratamiento)">Eliminar</button>
+                  </td>
+                  <td class="table-cell-acciones">
+                    <button type="button" class="edit-button" (click)="editarTratamiento(Tratamiento)">Editar</button>
+                </td>
+
+                  </tr>
+                  </tbody>
+              </table>
+
+            </div>
+          </div>
+          <div class=" espacio"></div>
+<!-------------------------------------- TABLA TEMPERATURA --------------------------------------------->
+
+
+<div class="table-containerTratamiento">
+  <div class="header">
+    <label for="" class="titulos">TEMPERATURA PARA LA CERDA</label>
+    <button type="button" class="nuevo" (click)="nuevaTemperatura(usuario)">Nuevo Temperatura</button>
+  </div>
+  <div class="table-scroll">
+    <table class="tableTratamiento">
+      <thead class="table-head"> <!-- Agregamos la clase "table-head" al encabezado -->
+        <tr>
+          <th (click)="sortTable('id')">
+            <span>ID</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('numero_parto')">
+            <span>NO.PARTO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_parto' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('id_cerda')">
+            <span>ID/CERDA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('cerda_nombre')">
+            <span>NOMBRE/CERDA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombre' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('fecha')">
+            <span>FECHA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('temperatura')">
+            <span>TEMPERATURA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'temperatura' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'temperatura' && sortDirection === -1}">&#8597;</span>
+          </th>
+
+          <th (click)="sortTable('hora')">
+            <span>HORA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'causa' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'causa' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('observacion')">
+            <span>OBSERVACION</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'observacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'observacion' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('id_info_parto')">
+            <span>ID PARTO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_info_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_info_parto' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('eliminar')">
+            <span>ELIMINAR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'eliminar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'eliminar' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('editar')">
+            <span>EDITAR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'editar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'editar' && sortDirection === -1}">&#8597;</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Temperatura of Temperatura"  [ngClass]="getClassForCondition(Temperatura.numero_partoT, Temperatura.id_cerdaT, usuario.numero_partoP, usuario.id_cerda)">
+          <td class="table-cell">{{ Temperatura.id }}</td>
+          <td class="table-cell">{{ Temperatura.numero_partoT }}</td>
+          <td class="table-cell">{{ Temperatura.id_cerdaT }}</td>
+          <td class="table-cell">{{ Temperatura.cerda_nombreT }}</td>
+          <td class="table-cell">{{ Temperatura.fechaT | date:'yyyy-MM-dd' }}</td>
+          <td class="table-cell">{{ Temperatura.temperaturaT }}</td>
+          <td class="table-cell">{{ Temperatura.horaT }}</td>
+          <td class="table-cell">{{ Temperatura.observacionT }}</td>
+          <td class="table-cell">{{ Temperatura.id_info_partoT }}</td>
+          <td class="table-cell-acciones">
+            <button type="button" class="delete-button" (click)="abrirModalTemperatura(Temperatura)">Eliminar</button>
+        </td>
+        <td class="table-cell-acciones">
+          <button type="button" class="edit-button" (click)="editarTemperatura(Temperatura)">Editar</button>
+      </td>
+        </tr>
+
+          <!-- Agrega declaraciones console.log para verificar los datos -->
+     
+   
+    </table>
+  </div>
+</div>
+
+
+
+
+        </div>
+
+    <!-------------------------------------------SEGUNDA COLUMNA--------------------------------------->
+        <div class="form-column">
+          <div class=" espacioP"></div>
+<!-------------------------------------- TABLA RESUMEN DE PARTOS--------------------------------------------->
+
+
+<div class="table-containerTratamientot">
+  <div class="header">
+    <label for="" class="titulos">RESUMEN DE PARTO</label>
+    <button type="button" class="nuevo" (click)="restablecerHoraFinal(usuario)">RESTABLECER LA HORA FINAL</button>
+  </div>
+  <div class="table-scrollt">
+    <table class="tableTratamientot">
+      <thead class="table-headq"> <!-- Agregamos la clase "table-head" al encabezado -->
+        <tr>
+          <th (click)="sortTable('numero_parto')">
+            <span>NO.PARTO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_parto' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('id_cerda')">
+            <span>ID/CERDA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+          </th>
+
+          <th (click)="sortTable('nacidos_vivos')">
+            <span>NACIDOS/VIVOS</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nacidos_vivos' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nacidos_vivos' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('nacidos_muertos')">
+            <span>NACIDOS/MUERTOS</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nacidos_muertos' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nacidos_muertos' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('nacidos_muertos')">
+            <span>NACIDOS/MOMIAS</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nacidos_muertos' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nacidos_muertos' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('total')">
+            <span>TOTAL</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'total' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'total' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('total')">
+            <span>HORA/INICIO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'total' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'total' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('total')">
+            <span>HORA/FINAL</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'total' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'total' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('atendidoPor')">
+            <span>ATENDIDO POR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'atendidoPor' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'atendidoPor' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('eliminar')">
+            <span>ELIMINAR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'eliminar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'eliminar' && sortDirection === -1}">&#8597;</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ResumenParto of ResumenParto"  [ngClass]="getClassForCondition(ResumenParto.numero_parto, ResumenParto.id_cerda, usuario.numero_partoP, usuario.id_cerda)">
+          <td class="table-cell">{{ ResumenParto.numero_parto }}</td>
+          <td class="table-cell">{{ ResumenParto.id_cerda }}</td>
+          <td class="table-cell">{{ ResumenParto.nacidos_vivos }}</td>
+          <td class="table-cell">{{ ResumenParto.nacidos_muertos }}</td>
+          <td class="table-cell">{{ ResumenParto.nacidos_momias }}</td>
+          <td class="table-cell">{{ ResumenParto.total }}</td>
+          <td class="table-cell">{{ ResumenParto.hora_inicio }}</td>
+          <td class="table-cell">{{ ResumenParto.hora_final }}</td>
+          <td class="table-cell">{{ ResumenParto.atendidoPor }}</td>
+          <td class="table-cell">
+            <button type="button" class="delete-button rotate-text"  (click)="abrirModalResumenParto(ResumenParto)">Eliminar</button>
+        </td>
+          
+        </tr>
+    </table>
+  </div>
+
+</div>
+<!-------------------------------------- TABLA DE PARTOS--------------------------------------------->
+
+<div class="table-containerTratamientoP">
+  <div class="header">
+    <label for="" class="titulos">PARTOS DE LA CERDA</label>
+    <button type="button" class="nuevo" (click)="nuevoParto(usuario)">Nuevo Parto</button>
+  </div>
+  <div class="table-scrollP">
+    <table class="tableTratamientoP">
+      <thead class="table-headP"> <!-- Agregamos la clase "table-head" al encabezado -->
+        <tr>
+       
+          <th (click)="sortTable('id')">
+            <span>ID</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('fecha')">
+            <span>FECHA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('peso')">
+            <span>PESO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'peso' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'peso' && sortDirection === -1}">&#8597;</span>
+          </th>
+
+          <th (click)="sortTable('m_h')">
+            <span>M/H</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'm_h' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'm_h' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('estado')">
+            <span>ESTADO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'estado' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'estado' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('numero_parto')">
+            <span>NO.PARTO</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'numero_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'numero_parto' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('id_cerda')">
+            <span>ID/CERDA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('cerda_nombre')">
+            <span>NOMBRE/CERDA</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'cerda_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'cerda_nombre' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('eliminar')">
+            <span>ELIMINAR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'eliminar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'eliminar' && sortDirection === -1}">&#8597;</span>
+          </th>
+          <th (click)="sortTable('editar')">
+            <span>EDITAR</span>
+            <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'editar' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'editar' && sortDirection === -1}">&#8597;</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Parto of Parto"  [ngClass]="getClassForCondition(Parto.numero_parto, Parto.id_cerda, usuario.numero_partoP, usuario.id_cerda)">
+          <td class="table-cell">{{ Parto.id }}</td>
+          <td class="table-cell">{{ Parto.fecha | date:'yyyy-MM-dd' }}</td>
+          <td class="table-cell">{{ Parto.peso }}</td>
+          <td class="table-cell">{{ Parto.m_h }}</td>
+          <td class="table-cell">{{ Parto.estado }}</td>
+          <td class="table-cell">{{ Parto.numero_parto }}</td>
+          <td class="table-cell">{{ Parto.id_cerda }}</td>
+          <td class="table-cell">{{ Parto.cerda_nombre }}</td>
+          <td class="table-cell-acciones">
+            <button type="button" class="delete-button" (click)="abrirModalParto(Parto)">Eliminar</button>
+        </td>
+        <td class="table-cell-acciones">
+          <button type="button" class="edit-button" (click)="editarParto(Parto)">Editar</button>
+      </td>
+
+        </tr>
+        
+    </table>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="button-container" style="position: relative;">
+  <button type="button" class="btn btn-danger" (click)="cancelar()"  style="position: absolute; ">Cancelar</button>
+</div>
+<div class="button-container" style="position: relative;">
+  <button type="button" class="btn btn-success" (click)="insertarInfoParto()"  style="position: absolute; ">Insertar Control</button>
+</div>
+        </div>
+
+      </form>
+  </div>
+  </div>
+  
+  
+  

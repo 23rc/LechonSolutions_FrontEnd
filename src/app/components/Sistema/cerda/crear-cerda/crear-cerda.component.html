@@ -1,0 +1,62 @@
+
+<head>
+    <title>Nueva Cerda</title>
+</head>
+    <div class="container">
+        <h1 class="titulo">Nueva Cerda</h1>
+        <form (submit)="insertar()" class="form-flexbox">
+            <div class="form-column">
+                <div class="form-group">
+                    <input type="text" id="nombre" [(ngModel)]="contenedorDB.nombre" name="nombre" class="form-control" required placeholder="Nombre del cerda">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="tetas" [(ngModel)]="contenedorDB.tetas" name="tetas" class="form-control" required placeholder="Tetas viables">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="peso" [(ngModel)]="contenedorDB.peso" name="peso" class="form-control" required placeholder="Peso del cerda">
+                  </div>
+                  <div class="form-group">
+                    <input type="date" id="fechaIngreso" [(ngModel)]="contenedorDB.fechaIngreso" name="fechaIngreso" class="form-control" required placeholder="Fecha de ingreso">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="observacion" [(ngModel)]="contenedorDB.observacion" name="observacion" class="form-control" required placeholder="Observaciones">
+                  </div>
+                  <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Insertar Cerda</button>
+                    
+                  </div>
+
+            </div>
+
+
+
+
+
+            <div class="form-column">
+                 <!-- Nuevos campos -->
+            <div class="form-group">
+                <input type="text" id="altura" [(ngModel)]="contenedorDB.altura" name="altura" class="form-control" required placeholder="Altura">
+              </div>
+              <div class="form-group">
+                <input type="text" id="ubicacion" [(ngModel)]="contenedorDB.ubicacion" name="ubicacion" class="form-control" required placeholder="Ubicación">
+              </div>
+              <div class="form-group">
+                <input type="text" id="estadoSalud" [(ngModel)]="contenedorDB.estadoSalud" name="estadoSalud" class="form-control" required placeholder="Estado de Salud">
+              </div>
+              <div class="form-group">
+                <input type="text" id="temperatura" [(ngModel)]="contenedorDB.temperatura" name="temperatura" class="form-control" required placeholder="Temperatura">
+              </div>
+              <div class="form-group">
+                <input type="date" id="ultimaActualizacion" [(ngModel)]="contenedorDB.ultimaActualizacion" name="ultimaActualizacion" class="form-control" required placeholder="Última Actualización">
+              </div>
+              <div class="button-container">
+                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+              </div>
+         
+
+            </div>
+
+          </form>
+          
+    </div>
+

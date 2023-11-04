@@ -1,0 +1,80 @@
+<div class="container">
+    <h4 class="modal-title titulo">Nuevo Parto</h4>
+    <div class="modal-body">
+      <!-- Contenido del formulario para editar el contenedorDB -->
+      <form (submit)="insertar()" class="form-flexbox">
+        <div class="form-grid">
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="toggleHora('horaInicio')">Hora de Inicio
+              <span *ngIf="mostrarHoraInicio"> {{ contenedorDB.hora_inicio }}</span>
+            </button>
+          </div>
+  
+          <!-- Botón para mostrar/ocultar Hora Final -->
+          <div class="form-group">
+            <button type="button" class="btn btn-primary" (click)="toggleHora('horaFinal')">Hora Final
+              <span *ngIf="mostrarHoraFinal"> {{ contenedorDB.hora_final }}</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <label for="numero_partoP">NUMERO DE PARTO</label>
+            <input type="text" id="numero_partoP" name="numero_partoP" [(ngModel)]="parametro.numero_partoP" class="form-control" placeholder="Numero de parto" disabled>
+          </div>
+  
+          <div class="form-group">
+            <label for="id_cerda">ID/CERDA</label>
+            <input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="parametro.id_cerda" class="form-control" placeholder="ID_CERDA" disabled>
+          </div>
+  
+          <div class="form-group">
+            <label for="cerda_nombre">NOMBRE DE LA CERDA</label>
+            <input type="text" id="cerda_nombre" name="cerda_nombre" [(ngModel)]="parametro.cerda_nombre" class="form-control" placeholder="NOMBRE/CERDA" disabled >
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha">FECHA:</label>
+            <input type="date" id="fecha" name="fecha" [(ngModel)]="contenedorDB.fecha" class="form-control" placeholder="Fecha">
+          </div>
+  
+          <div class="form-group">
+            <label for="peso">PESO:</label>
+            <input type="text" id="peso" name="peso" [(ngModel)]="contenedorDB.peso" class="form-control" placeholder="Peso">
+          </div>
+  
+          <div class="form-group">
+            <label for="m_h">GENERO:</label>
+            <input type="text" id="m_h" name="m_h" [(ngModel)]="contenedorDB.m_h" class="form-control" placeholder="GENERO">
+          </div>
+
+          <div class="form-group">
+            <label for="estado">ESTADO:</label>
+            <input type="text" id="estado" name="estado" [(ngModel)]="contenedorDB.estado" class="form-control" placeholder="Estado">
+          </div>
+  
+          <div class="form-group">
+            <label for="id">ID/INFO/PARTO:</label>
+            <input type="text" id="id" name="id" [(ngModel)]="partoData.id" class="form-control" placeholder="ID/INFO/PARTO">
+          </div>
+
+          <div *ngIf="mostrarHoraInicio" class="form-group">
+    
+            <input type="text" id="hora_inicio" name="hora_inicio" [(ngModel)]="contenedorDB.hora_inicio" class="form-control" placeholder="HORA DE INICIO" hidden>
+          </div>
+  
+          <div *ngIf="mostrarHoraFinal" class="form-group">
+     
+            <input type="text" id="hora_final" name="hora_final" [(ngModel)]="contenedorDB.hora_final" class="form-control" placeholder="HORA FINAL" hidden>
+          </div>
+          <div class="form-group">
+            <label for="atendidoPor">Atendido_Por:</label>
+            <input type="tex" id="atendidoPor" name="atendidoPor" [(ngModel)]="partoData.atendidoPor" class="form-control" placeholder="ATENDIDO POR">
+          </div>
+        </div>
+        <!-- Botón Guardar Cambios -->
+        <button type="button" class="btn btn-primary" (click)="insertar()">Guardar Cambios</button>
+        <!-- Botón Cancelar -->
+        <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+      </form>
+    </div>
+  </div>
+  

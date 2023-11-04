@@ -1,0 +1,188 @@
+.footer {
+    background-color: #5d83d400; /* Cambia el color de fondo según tu paleta de colores */
+    color: #000000; /* Color del texto */
+    padding: 10px 0; /* Espacio de relleno reducido */
+    text-align: center; /* Centrar el texto en el footer */
+    position: fixed; /* Fijar el footer en la parte inferior */
+    bottom: 0; /* Fijar el footer en la parte inferior */
+    width: 100%; /* Ancho del 100% para ocupar toda la pantalla */
+    z-index: 2; /* Establece un valor de z-index mayor para el pie de página */
+    height: 6%;
+  }
+
+  /* Estilos para la línea de derechos de autor */
+  .copyright {
+    font-size: 12px;
+  }
+
+  .modal {
+    margin-top: 100px; /* Ajusta la cantidad de píxeles según tus necesidades */
+    margin-left: 60px;
+  }
+
+  .modal-dialog {
+    margin-left: auto;
+    margin-right: 410px;
+  }
+
+  /* Centrar verticalmente */
+.modal-vertical-center {
+ 
+  margin-left: -250px;
+}
+
+.modalgrande{
+margin-top:36px;
+margin-left: 228px;
+width: 1310px;
+
+}
+.resaltar-fila {
+  background-color: orange;
+}
+
+.fila-resaltada {
+  background-color: yellow; /* Cambia el color de fondo a tu preferencia */
+  /* Otros estilos de resaltado que desees aplicar */
+}
+/* Centrar horizontalmente */
+
+
+  @import "~bootstrap/dist/css/bootstrap.min.css";
+  @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+ 
+
+/* Estilos personalizados para las alertas visuales ngx-toastr */
+
+/* Estilos para las alertas visuales individuales */
+/* Estilos para las alertas de éxito */
+.toast-success {
+  background-color: #4caf50; /* Color de fondo para éxito */
+  color: white;
+  padding: 20px; /* Aumenta el espacio interno */
+  border-radius: 10px; /* Agrega bordes redondeados */
+  max-width: 300px; /* Establece el ancho máximo */
+  text-align: center; /* Centra el texto */
+  position: relative; /* Necesario para posicionar la imagen/icono */
+}
+
+/* Agrega una imagen de checkmark (por ejemplo) */
+.toast-success::before {
+  content: ''; /* Agrega contenido antes del texto */
+  background-image: url('/assets/OK.jpg'); /* Ruta de la imagen o icono */
+  background-size: 24px; /* Tamaño de la imagen/icono */
+  background-repeat: no-repeat; /* Evita la repetición */
+  background-position: center; /* Centra la imagen/icono */
+  width: 24px; /* Ancho de la imagen/icono */
+  height: 24px; /* Altura de la imagen/icono */
+  display: block; /* Convierte el contenido en un bloque */
+  margin: 0 auto 10px; /* Espaciado inferior para separar la imagen del texto */
+}
+
+
+/* Estilos para las alertas de error */
+.toast-error {
+  background-color: #f44336; /* Color de fondo para error */
+  color: white;
+  padding: 20px; /* Aumenta el espacio interno */
+  border-radius: 10px; /* Agrega bordes redondeados */
+  max-width: 300px; /* Establece el ancho máximo */
+  text-align: center; /* Centra el texto */
+  position: relative; /* Necesario para posicionar la imagen/icono */
+}
+
+/* Agrega una imagen de "X" (por ejemplo) para las alertas de error */
+.toast-error::before {
+  content: ''; /* Agrega contenido antes del texto */
+  background-image: url('/assets/negacion.png'); /* Ruta de la imagen o icono de error */
+  background-size: 24px; /* Tamaño de la imagen/icono */
+  background-repeat: no-repeat; /* Evita la repetición */
+  background-position: center; /* Centra la imagen/icono */
+  width: 24px; /* Ancho de la imagen/icono */
+  height: 24px; /* Altura de la imagen/icono */
+  display: block; /* Convierte el contenido en un bloque */
+  margin: 0 auto 10px; /* Espaciado inferior para separar la imagen del texto */
+}
+
+/* Estilos para las alertas de advertencia */
+.toast-warning {
+  background-color: #ff9800; /* Color de fondo para advertencia */
+  color: white;
+  padding: 20px; /* Aumenta el espacio interno */
+  border-radius: 10px; /* Agrega bordes redondeados */
+  max-width: 300px; /* Establece el ancho máximo */
+  text-align: center; /* Centra el texto */
+  position: relative; /* Necesario para posicionar la imagen/icono */
+}
+
+/* Agrega una imagen de advertencia (por ejemplo) para las alertas de advertencia */
+.toast-warning::before {
+  content: ''; /* Agrega contenido antes del texto */
+  background-image: url('/assets/advertencia.png'); /* Ruta de la imagen o icono de advertencia */
+  background-size: 24px; /* Tamaño de la imagen/icono */
+  background-repeat: no-repeat; /* Evita la repetición */
+  background-position: center; /* Centra la imagen/icono */
+  width: 24px; /* Ancho de la imagen/icono */
+  height: 24px; /* Altura de la imagen/icono */
+  display: block; /* Convierte el contenido en un bloque */
+  margin: 0 auto 10px; /* Espaciado inferior para separar la imagen del texto */
+}
+
+
+/* Estilos para las alertas de información */
+.toast-info {
+  background-color: #2196f3; /* Color de fondo para información */
+  color: white;
+  padding: 20px; /* Aumenta el espacio interno */
+  border-radius: 10px; /* Agrega bordes redondeados */
+  max-width: 300px; /* Establece el ancho máximo */
+  text-align: center; /* Centra el texto */
+  position: relative; /* Necesario para posicionar la imagen/icono */
+}
+
+/* Agrega una imagen de información (por ejemplo) para las alertas de información */
+.toast-info::before {
+  content: ''; /* Agrega contenido antes del texto */
+  background-image: url('/assets/OK.jpg'); /* Ruta de la imagen o icono de información */
+  background-size: 24px; /* Tamaño de la imagen/icono */
+  background-repeat: no-repeat; /* Evita la repetición */
+  background-position: center; /* Centra la imagen/icono */
+  width: 24px; /* Ancho de la imagen/icono */
+  height: 24px; /* Altura de la imagen/icono */
+  display: block; /* Convierte el contenido en un bloque */
+  margin: 0 auto 10px; /* Espaciado inferior para separar la imagen del texto */
+}
+
+/* Estilos personalizados para las alertas visuales ngx-toastr */
+.toast-container {
+  position: fixed;
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
+  
+}
+
+
+
+
+.modal-confirmacion1 {
+  position: absolute;
+  top: -80px; /* Ajusta la posición vertical */
+  left: -100px; /* Ajusta la posición horizontal */
+  /* Otras propiedades CSS de personalización según tus necesidades */
+}
+
+.modal-editar-tratamiento{
+  left: -200px;
+}
+.modal-nuevo-tratamiento{
+  left: -405px;
+  
+}
+
+.modal-eliminar{
+  left:-200px;
+  top: 150px;
+}
+
+

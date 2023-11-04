@@ -1,0 +1,54 @@
+<div class="container">
+  <h4 class="modal-title titulo">Editar Barraco</h4>
+<div class="modal-body">
+  <!-- Contenido del formulario para editar el usuario -->
+  <form (submit)="guardarCambios()" class="form-flexbox">
+  
+      <div class="form-column">
+        <div class="form-group">
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+          <input type="text" id="peso" name="peso" [(ngModel)]="usuario.peso" class="form-control" placeholder="Peso en kg">
+      </div>
+      <div class="form-group">
+          <input type="date" id="fechaIngreso" name="fechaIngreso" [(ngModel)]="usuario.fechaIngreso" class="form-control" placeholder="Fecha de ingreso">
+      </div>
+      <div class="form-group">
+          <input type="text" id="observacion" name="observacion" [(ngModel)]="usuario.observacion" class="form-control" placeholder="Observación">
+      </div>
+      <!-- Nuevos campos -->
+      <div class="form-group">
+          <input type="text" id="altura" name="altura" [(ngModel)]="usuario.altura" class="form-control" placeholder="Altura">
+      </div>
+      <div class="button-container">
+        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+        
+      </div>
+    </div>
+
+    <div class="form-column">
+
+      <div class="form-group">
+        <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="usuario.ubicacion" class="form-control" placeholder="Ubicación">
+    </div>
+    <div class="form-group">
+        <input type="text" id="estadoSalud" name="estadoSalud" [(ngModel)]="usuario.estadoSalud" class="form-control" placeholder="Estado de salud">
+    </div>
+    <div class="form-group">
+        <input type="text" id="temperatura" name="temperatura" [(ngModel)]="usuario.temperatura" class="form-control" placeholder="Temperatura">
+    </div>
+    <div class="form-group">
+        <input type="number" id="precio" name="precio" [(ngModel)]="usuario.precio" class="form-control" placeholder="Precio">
+    </div>
+    <div class="button-container">
+      <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+    </div>
+    </div>
+
+</form>
+
+</div>
+</div>
+
+

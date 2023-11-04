@@ -1,0 +1,64 @@
+
+  
+  /* Estilos para el título del informe */
+  .report h2 {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+ 
+  /* Estilos para el lienzo del gráfico */
+  canvas {
+    width: 100%; /* Asegura que el lienzo ocupe todo el ancho del informe */
+    max-height: 200px;
+    margin-top: 10px;
+  }
+
+  
+/* Estilos para el contenedor de informes */
+.report-container {
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+/* Estilos para cada informe */
+.report {
+    width: 75%; /* Ancho del informe */
+    padding: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* Ajusta este valor para reducir el espacio entre los informes */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-left: 170px;
+}
+
+.separar{
+    padding-left: 70px;
+    padding-top:76px;
+  }
+.header{
+    text-align: center;
+
+
+}
+
+
+
+
+.generar-pdf-button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-left: 160px;
+}
+
+.generar-pdf-button:hover {
+  background-color: #0056b3;
+}

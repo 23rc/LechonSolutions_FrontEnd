@@ -1,0 +1,148 @@
+<p>control-parto works!</p>
+<p>control-cerda works!</p>
+
+<head>
+    <title>Lista De Partos</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="titulo">Lista de Partos</h1>
+        <div class="header-controls">
+            <label for="pageSize">Ver registros por:</label>
+            <select id="pageSize" [(ngModel)]="pageSize">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="500">500</option>
+            </select>
+
+        </div>
+    </header>
+    <main class="content">
+        <div class="status-and-search">
+            <div class="status-indicators">
+                <div class="status-indicator">
+                    <div class="status-circle gris"></div>
+                    <div class="status-label">Pasado</div>
+                  </div>
+              <div class="status-indicator">
+                <div class="status-circle proximo"></div>
+                <div class="status-label">Próximo</div>
+              </div>
+              <div class="status-indicator">
+                <div class="status-circle anaranjado"></div>
+                <div class="status-label">Más de 2 días</div>
+              </div>
+              <div class="status-indicator">
+                <div class="status-circle verde"></div>
+                <div class="status-label">Más de 8 días</div>
+              </div>
+           
+            </div>
+            <div class="search-and-filter">
+              <input type="text" [(ngModel)]="searchText" placeholder="Buscar..." class="clear-background">
+            </div>
+          </div>
+      <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th (click)="sortTable('id')">
+                        <span>ID</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_control_cerda')">
+                        <span>ID Control Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_control_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_control_cerda' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('id_cerda')">
+                        <span>ID Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'id_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'id_cerda' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('nombre_cerda')">
+                        <span>Nombre/Cerda</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'nombre_cerda' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'nombre_cerda' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('tipo_carga')">
+                        <span>Tipo de Carga</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'tipo_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'tipo_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('barraco_nombre')">
+                        <span>Nombre Barraco</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'baraaco_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'barraco_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('pacha_nombre')">
+                        <span>Nombre Pacha</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'pacha_nombre' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'pacha_nombre' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_inseminacion')">
+                        <span>Fecha de Inseminación</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_inseminacion' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_inseminacion' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_confirmacion_carga')">
+                        <span>Fecha de Confirmación de Carga</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_confirmacion_carga' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_confirmacion_carga' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_posible_parto')">
+                        <span>Fecha Posible de Parto</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_posible_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_posible_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('fecha_sala_parto')">
+                        <span>Fecha Sala de Parto</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'fecha_sala_parto' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'fecha_sala_parto' && sortDirection === -1}">&#8597;</span>
+                    </th>
+                    <th (click)="sortTable('observaciones')">
+                        <span>Observaciones</span>
+                        <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'observaciones' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'observaciones' && sortDirection === -1}">&#8597;</span>
+                    </th>
+  
+                </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr *ngFor="let ContenedorLocal of visible" >
+                    <td class="table-cell-id" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.id === null || ContenedorLocal.id === '' ? 'NULL' : ContenedorLocal.id }}</td>
+                    <td class="table-cell-id" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.id_control_cerda === null || ContenedorLocal.id_control_cerda === '' ? 'NULL' : ContenedorLocal.id_control_cerda }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.id_cerda === null || ContenedorLocal.id_cerda === '' ? 'NULL' : ContenedorLocal.id_cerda }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.cerda_nombre=== null || ContenedorLocal.cerda_nombre === '' ? 'NULL' : ContenedorLocal.cerda_nombre }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.tipo_carga === null || ContenedorLocal.tipo_carga === '' ? 'NULL' : ContenedorLocal.tipo_carga }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.barraco_nombre === null || ContenedorLocal.barraco_nombre === '' ? 'NULL' : ContenedorLocal.barraco_nombre }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.pacha_nombre === null || ContenedorLocal.pacha_nombre === '' ? 'NULL' : ContenedorLocal.pacha_nombre }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.fecha_inseminacion === null || ContenedorLocal.fecha_inseminacion === '' ? 'NULL' : ContenedorLocal.fecha_inseminacion }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.fecha_confirmacion_carga === null || ContenedorLocal.fecha_confirmacion_carga === '' ? 'NULL' : ContenedorLocal.fecha_confirmacion_carga }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.fecha_posible_parto === null || ContenedorLocal.fecha_posible_parto === '' ? 'NULL' : ContenedorLocal.fecha_posible_parto }}</td>               
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.fecha_sala_parto === null || ContenedorLocal.fecha_sala_parto === '' ? 'NULL' : ContenedorLocal.fecha_sala_parto }}</td>
+                    <td class="table-cell" [ngClass]="getClassForCondition(ContenedorLocal.fecha_posible_parto)">{{ ContenedorLocal.observaciones === null || ContenedorLocal.observaciones === '' ? 'NULL' : ContenedorLocal.observaciones }}</td>
+        
+                  </tr>
+                  
+                
+            </tbody>
+        </table>
+    </div>
+
+        <div class="pagination-controls">
+            <button class="pagination-button" (click)="previousPage()">Anterior</button>
+            <button class="pagination-button" (click)="nextPage()">Siguiente</button>
+        </div>
+        <div class="confirmation-modal" *ngIf="showConfirmationModal">
+            <div class="modal-content">
+                <p>¿Estás seguro de que deseas eliminar el registro {{ ToDelete?.nombre }}?</p>
+                <button class="confirm-button" (click)="confirmDelete()">Confirmar</button>
+                <button class="cancel-button" (click)="cancelDelete()">Cancelar</button>
+            </div>
+        </div>
+
+
+      
+       
+    </main>
+
+
+
+</body>
+
+
+
+
+

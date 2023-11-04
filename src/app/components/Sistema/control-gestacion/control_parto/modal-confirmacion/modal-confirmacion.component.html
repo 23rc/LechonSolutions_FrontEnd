@@ -1,0 +1,21 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title">Número de parto a editar?</h5>
+    <button type="button" class="close" (click)="closeForm()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="submitForm()">
+      <div class="form-group">
+        <label for="numParto">Nuevo número de parto:</label>
+        <input type="text" class="form-control" id="numParto" [(ngModel)]="numParto" name="numParto" placeholder="Ingresa el número de parto">
+      </div>
+      <!-- Botón Nuevo -->
+<!-- Botón Nuevo -->
+<button type="button" class="btn btn-secondary" (click)="nuevoParto()" [disabled]="!showNuevoButton">Nuevo</button>
+
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+</div>

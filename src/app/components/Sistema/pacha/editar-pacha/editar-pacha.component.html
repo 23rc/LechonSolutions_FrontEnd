@@ -1,0 +1,57 @@
+<div class="container">
+    <h4 class="modal-title titulo">Editar Usuario</h4>
+  <div class="modal-body">
+    <!-- Contenido del formulario para editar el usuario -->
+    <form (submit)="guardarCambios()" class="form-flexbox">
+      <div class="form-column">
+        <div class="form-group">
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Nombre">
+        </div>
+        <div class="form-group">
+          <input type="date" id="fechaIngreso" name="fechaIngreso" [(ngModel)]="usuario.fechaIngreso" class="form-control" placeholder="Fecha de ingreso">
+        </div>
+        <div class="form-group">
+          <input type="date" id="fechaVencimiento" name="fechaVencimiento" [(ngModel)]="usuario.fechaVencimiento" class="form-control" placeholder="Fecha de vencimiento">
+        </div>
+        <div class="form-group">
+          <input type="text" id="observacion" name="observacion" [(ngModel)]="usuario.observacion" class="form-control" placeholder="Observacion">
+        </div>
+        <div class="form-group">
+          <input type="text" id="origenGenetico" name="origenGenetico" [(ngModel)]="usuario.origenGenetico" class="form-control" placeholder="Origen Genético">
+        </div>
+        <div class="button-container">
+          <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+         
+        </div>
+
+      </div>
+
+
+
+      <div class="form-column">
+        <div class="form-group">
+          <input type="text" id="lote" name="lote" [(ngModel)]="usuario.lote" class="form-control" placeholder="Lote">
+        </div>
+        <div class="form-group">
+          <input type="number" id="cantidad" name="cantidad" [(ngModel)]="usuario.cantidad" class="form-control" placeholder="Cantidad">
+        </div>
+        <div class="form-group">
+          <input type="text" id="calidad" name="calidad" [(ngModel)]="usuario.calidad" class="form-control" placeholder="Calidad">
+        </div>
+        <div class="form-group">
+          <input type="text" id="temperaturaAlmacenamiento" name="temperaturaAlmacenamiento" [(ngModel)]="usuario.temperaturaAlmacenamiento" class="form-control" placeholder="Temperatura de Almacenamiento">
+        </div>
+        <div class="button-container">
+         
+          <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+        </div>
+      </div>
+
+    </form>
+    
+  </div>
+
+  </div>
+
+  
+  

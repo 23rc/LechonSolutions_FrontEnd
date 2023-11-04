@@ -1,0 +1,92 @@
+.container {
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0) url('/assets/formulario.jpg') ;
+  border-radius: 8px;
+  padding: 30px;
+}
+.titulo {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+label {
+  font-weight: bold;
+  color: #555;
+}
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.btn {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  margin-top: 40px;
+  margin-left: 1px;
+  width: 135px;
+}
+.btn-danger:hover {
+  background-color: #6a60f0;
+}
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+  margin-left: 150px;
+  margin-top: -60px;
+  width: 135px;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+.alert {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+  margin-top: -5px;
+  margin-left: -360px;
+  text-align: center;
+}
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  font:center;
+  margin-top: -5px;
+  margin-left: -360px;
+  text-align: center;
+}
+/* Establece estilos para la flecha indicadora de FontAwesome */
+.select-indicator {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #555;
+}
+
+.form-flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  flex: 1;
+  padding: 10px;
+}

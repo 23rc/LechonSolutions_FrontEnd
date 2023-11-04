@@ -1,0 +1,45 @@
+/* Estilo para el contenedor del formulario */
+.container {
+    min-width: 600px; /* Ancho mayor para dos columnas */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 12px;
+  }
+  
+  /* Estilo para el diseño de dos columnas usando CSS Grid */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas con igual ancho */
+    gap: 10px; /* Espacio entre elementos */
+  }
+  
+  /* Estilo para las etiquetas */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para los campos de entrada */
+  input.form-control {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  /* Estilo para los botones */
+  button.btn {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  

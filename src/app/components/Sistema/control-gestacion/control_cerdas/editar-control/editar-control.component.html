@@ -1,0 +1,115 @@
+
+<div class="container">
+    <h4 class="modal-title titulo">Editar Registro</h4>
+  <div class="modal-body">
+    <!-- Contenido del formulario para editar el usuario -->
+    <form (submit)="guardarCambios()" class="form-flexbox">
+    
+        <div class="form-column">
+            <div class="form-group ">
+                <label for="" >Seleccionar Cerda</label>
+                <select [(ngModel)]="usuario.cerda_id" name="cerda_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreCerda($event)"[disabled]="usuario.confirmar_carga === 'Cargada'" >
+                  <option value="">Seleccionar Cerda</option>
+                  <option *ngFor="let cerda of cerdasList" [value]="cerda.id">{{ cerda.nombre }}</option>
+                </select>
+              </div>
+     
+            <div class="form-group">
+                <input type="text" id="cerda_id" [(ngModel)]="usuario.cerda_id" name="cerda_id" class="form-control readonly-input" required placeholder="Id de la Cerda" readonly>
+            </div>
+            <div class="form-group">
+                <input type="text" id="cerda_nombre" [(ngModel)]="usuario.cerda_nombre" name="cerda_nombre" class="form-control readonly-input" required placeholder="Nombre de la cerda" readonly hidden>
+              </div>
+            
+            <div class="form-group">
+                <input type="text" id="barraco_id" [(ngModel)]="usuario.barraco_id" name="barraco_id" class="form-control readonly-input" required placeholder="Id del barraco"readonly hidden>
+            </div>
+            <div class="form-group">
+                <input type="text" id="barraco_nombre" [(ngModel)]="usuario.barraco_nombre" name="barraco_nombre" class="form-control readonly-input" required placeholder="Nombre del barraco"readonly hidden>
+              </div>
+              <div class="form-group2">
+                <label for="barraco_id">Seleccionar Barraco</label>
+                <select [(ngModel)]="usuario.barraco_id" name="barraco_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreBarraco($event); usuario.tipo_carga = 'Natural'; usuario.producto_id = null;usuario.producto_nombre = '';" [disabled]="usuario.confirmar_carga === 'Cargada'">
+                  <option [ngValue]="null">Seleccionar Barraco</option>
+                  <option *ngFor="let barraco of barracosList" [value]="barraco.id">{{ barraco.nombre }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input type="text" id="producto_id" [(ngModel)]="usuario.producto_id" name="producto_id" class="form-control readonly-input" required placeholder="Id de la pacha" readonly hidden >
+            </div>
+            <div class="form-group">
+                <input type="text" id="producto_nombre" [(ngModel)]="usuario.producto_nombre" name="producto_nombre" class="form-control readonly-input" required placeholder="Nombre de la pacha" readonly  hidden>
+              </div>
+ 
+                <div class="form-group">
+                  <label for="producto_id">Seleccionar Producto</label>
+                  <select [(ngModel)]="usuario.producto_id" name="producto_id" class="form-control colorSeleccion" (ngModelChange)="actualizarNombreProducto($event); usuario.tipo_carga = 'Inseminación Artificial'; usuario.barraco_id = null;usuario.barraco_nombre = '';" [disabled]="usuario.confirmar_carga === 'Cargada'">
+                    <option [ngValue]="null">Seleccionar Producto</option>
+                    <option *ngFor="let producto of productosList" [value]="producto.id">{{ producto.nombreProducto }}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="producto_id">Seleccionar Producto</label>
+                  <input type="text" id="tipo_carga"[(ngModel)]="usuario.tipo_carga" name="tipo_carga" class="form-control readonly-input" required placeholder="Nombre de la pacha" readonly  disabled>
+                </div>
+             
+            
+       
+      </div>
+  
+      <div class="form-column">
+  
+        <!-- Selector de barracos -->
+
+        <div class="form-group">
+          <label for="fecha_inseminacion">Fecha de inseminación</label>
+          <input type="date" id="fecha_inseminacion" [(ngModel)]="usuario.fecha_inseminacion" name="fecha_inseminacion" class="form-control"
+                 (ngModelChange)="calcularFechaConfirmacion()" required placeholder="Fecha de inseminación/Carga" [readonly]="usuario.confirmar_carga === 'Cargada'">
+        </div>
+
+         
+          <div class="form-group2">
+            <label for="fecha_confirmacion_carga">Fecha de confirmación de carga</label>
+            <input type="date" id="fecha_confirmacion_carga" [(ngModel)]="usuario.fecha_confirmacion_carga" name="fecha_confirmacion_carga"
+                   class="form-control readonly-input" required placeholder="Fecha de confirmación de carga" readonly>
+          </div>
+
+          <div class="form-group2">
+            <label for="confirmar_carga">Confirmar Estado de Carga</label>
+            <select [(ngModel)]="usuario.confirmar_carga" name="confirmar_carga" class="form-control" required (change)="confirmarSeleccion()" [disabled]="usuario.confirmar_carga === 'Cargada'">
+              <option value="">Seleccione el estado</option>
+              <option value="Cargada">Cargada</option>
+              <option value="No Cargada">No Cargada</option>
+            </select>
+          </div>
+          <div class="alert confirmacion" *ngIf="mostrarConfirmacion">
+            <h4>Al aceptar ya no podrá modificar el registro</h4>
+            <h5>¿Está seguro de continuar?</h5>
+            <button class="btn btn-success" (click)="aceptarSeleccion()">Aceptar</button>
+            <button class="btn btn-danger" (click)="cancelarSeleccion()">Cancelar</button>
+          </div>
+          
+          
+          
+          
+    <div class="form-group2">
+        <input type="text" id="observaciones" [(ngModel)]="usuario.observaciones" name="observaciones" class="form-control" required placeholder="Observaciones"  [readonly]="usuario.confirmar_carga === 'Cargada'">
+    </div>
+    <div class="button-container">
+        <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar</button>
+        
+      </div>
+    <div class="button-container" style="position: relative;">
+        <button type="button" class="btn btn-danger" (click)="cancelar()"  style="position: absolute;">Cancelar</button>
+    </div>
+      </div>
+
+  </form>
+  
+  </div>
+  </div>
+  
+  
+      <!-- [disabled]="usuario.confirmar_carga === 'Cargada'" -->
+      <!-- [readonly]="usuario.confirmar_carga === 'Cargada'" -->

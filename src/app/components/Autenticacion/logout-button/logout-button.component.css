@@ -1,0 +1,9 @@
+button {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    color: #ffffff; /* Color de las letras */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    margin-top: -3px;
+    margin-left: 0px;
+    font-size:13px;
+  }

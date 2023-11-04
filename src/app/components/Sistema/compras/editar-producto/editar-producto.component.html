@@ -1,0 +1,46 @@
+<div class="container">
+    <h4 class="modal-title titulo">Editar Producto</h4>
+    <div class="modal-body">
+      <form (submit)="guardarCambios()" class="form-flexbox">
+  
+        <div class="form-column">
+          <div class="form-group">
+            <input type="text" id="nombreProducto" name="nombreProducto" [(ngModel)]="usuario.nombreProducto" class="form-control" placeholder="Nombre del producto">
+          </div>
+          <div class="form-group">
+            <input type="text" id="tipoProducto" name="tipoProducto" [(ngModel)]="usuario.tipoProducto" class="form-control" placeholder="Tipo del producto">
+          </div>
+          <div class="form-group">
+            <input type="text" id="descripcion" name="descripcion" [(ngModel)]="usuario.descripcion" class="form-control" placeholder="Descripción">
+          </div>
+          <div class="form-group">
+            <input type="number" id="precio" name="precio" [(ngModel)]="usuario.precio" class="form-control" placeholder="Precio">
+          </div>
+   
+          <div class="button-container">
+            <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
+          </div>
+        </div>
+
+        <div class="form-column">
+
+            <div class="form-group">
+                <input type="number" id="stock" name="stock" [(ngModel)]="usuario.stock" class="form-control" placeholder="Stock">
+              </div>
+              <div class="form-group">
+                <input type="date" id="fechaVencimiento" name="fechaVencimiento" [(ngModel)]="usuario.fechaVencimiento" class="form-control" placeholder="Fecha de Vencimiento">
+              </div>
+              <div class="form-group">
+                <input type="text" id="proveedorID" name="proveedorID" [(ngModel)]="usuario.proveedorID" class="form-control" placeholder="Proveedor" disabled>
+              </div>
+
+
+              <div class="button-container">
+                <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+              </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  

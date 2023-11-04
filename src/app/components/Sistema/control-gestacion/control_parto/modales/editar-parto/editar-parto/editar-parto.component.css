@@ -1,0 +1,41 @@
+/* Estilo para el contenedor del formulario */
+.container {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .titulo{
+    align-items: center;
+  }
+  /* Estilo para las etiquetas */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Estilo para los campos de entrada */
+  input.form-control {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Estilo para los botones */
+  button.btn {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 10px; /* Agrega espacio entre los botones */
+  }
+  

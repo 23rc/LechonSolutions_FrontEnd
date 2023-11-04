@@ -1,0 +1,57 @@
+
+<head>
+    <title>Nuevo Usuario</title>
+</head>
+    <div class="container">
+        <h1 class="titulo">Nuevo Barraco</h1>
+        <form (submit)="insertar()" class="form-flexbox">
+            <div class="form-column">
+                <div class="form-group">
+                    <input type="text" id="nombre" [(ngModel)]="contenedorDB.nombre" name="nombre" class="form-control" required placeholder="Nombre del barraco">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="peso" [(ngModel)]="contenedorDB.peso" name="peso" class="form-control" required placeholder="Peso del barraco">
+                </div>
+                <div class="form-group">
+                    <input type="date" id="fechaIngreso" [(ngModel)]="contenedorDB.fechaIngreso" name="fechaIngreso" class="form-control" required placeholder="Fecha de ingreso">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="observacion" [(ngModel)]="contenedorDB.observacion" name="observacion" class="form-control" required placeholder="Observaciones">
+                </div>
+                <!-- Nuevos campos -->
+                <div class="form-group">
+                    <input type="text" id="altura" [(ngModel)]="contenedorDB.altura" name="altura" class="form-control" required placeholder="Altura del barraco">
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="btn btn-primary">Insertar Barraco</button>
+                  
+                </div>
+
+            </div>
+
+            <div class="form-column">
+                <div class="form-group">
+                    <input type="text" id="ubicacion" [(ngModel)]="contenedorDB.ubicacion" name="ubicacion" class="form-control" required placeholder="Ubicación del barraco">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="estadoSalud" [(ngModel)]="contenedorDB.estadoSalud" name="estadoSalud" class="form-control" required placeholder="Estado de salud del barraco">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="temperatura" [(ngModel)]="contenedorDB.temperatura" name="temperatura" class="form-control" required placeholder="Temperatura del barraco">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="precio" [(ngModel)]="contenedorDB.precio" name="precio" class="form-control" required placeholder="Precio">
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
+                </div>
+                
+            
+            </div>
+            <!-- Fin de los nuevos campos -->
+           
+           
+        </form>
+        
+    </div>
+

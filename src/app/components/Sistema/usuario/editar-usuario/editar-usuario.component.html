@@ -1,0 +1,151 @@
+
+
+
+  <div class="container">
+    <h4 class="modal-title titulo">Editar Usuario</h4>
+    <div class="modal-body">
+      <form (submit)="guardarCambios()" class="form-flexbox">
+        <div class="form-column">
+          <div class="form-group">
+            <input type="text" id="nombres" name="nombres" [(ngModel)]="usuario.nombres" class="form-control" placeholder="Nombres">
+          </div>
+          <div class="form-group">
+            <input type="text" id="apellidos" name="apellidos" [(ngModel)]="usuario.apellidos" class="form-control" placeholder="Apellidos">
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="usuario" name="usuario" [(ngModel)]="usuario.usuario" class="form-control" placeholder="Usuario">
+          </div>
+          <div class="form-group">
+            <input type="text" id="rol" [(ngModel)]="usuario.rol" name="rol" class="form-control" required placeholder="rol" (input)="formatRolInput()">
+          </div>
+
+
+          <div class="form-group-column">
+            <div class="form-group">
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.consulta" name="consulta">
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Consulta</span>
+            </div>
+          
+            <div class="form-group">
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.registro" name="registro">
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Registro</span>
+            </div>
+          
+            <div class="form-group">
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.reportes" name="reportes">
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Compras</span>
+            </div>
+          </div>
+          
+          <div class="form-group-column">
+            <div class="form-group">
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.inventario" name="inventario">
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Inventario</span>
+            </div>
+          
+            <div class="form-group">
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.control" name="control">
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Control</span>
+            </div>
+          
+            <div class="form-group" >
+              <label class="switch-label">
+                <input type="checkbox" [(ngModel)]="usuario.usuarios" name="usuarios" >
+                <span class="slider round"></span>
+              </label>
+              <span class="label-text">Usuarios</span>
+            </div>
+          </div>
+          <!-- Agrega esta sección en tu formulario -->
+<!-- Agrega aquí los campos de checkbox para consulta, registro, reportes, etc. -->
+<!--<div class="form-group">
+  <label>Consulta:</label>
+  <input type="checkbox" [(ngModel)]="usuario.consulta" name="consulta">
+</div>
+<div class="form-group">
+  <label>Registro:</label>
+  <input type="checkbox" [(ngModel)]="usuario.registro" name="registro">
+</div>
+<div class="form-group">
+  <label>Reportes:</label>
+  <input type="checkbox" [(ngModel)]="usuario.reportes" name="reportes">
+</div>
+<div class="form-group">
+  <label>Inventario:</label>
+  <input type="checkbox" [(ngModel)]="usuario.inventario" name="inventario">
+</div>
+<div class="form-group">
+  <label>Control:</label>
+  <input type="checkbox" [(ngModel)]="usuario.control" name="control">
+</div>
+<div class="form-group">
+  <label>Usuarios:</label>
+  <input type="checkbox" [(ngModel)]="usuario.usuarios" name="usuarios">
+</div>-->
+
+
+
+
+
+          
+
+          <div class="button-container" style="position: relative;">
+            <button type="button" class="btn btn-primary" (click)="guardarCambios()" style="position: absolute; ">Guardar Cambios</button>
+          </div><!-- Agrega otros campos para la primera columna aquí -->
+        </div>
+        <div class="button-container" style="position: relative;">
+           
+          <button type="button" class="btn btn-danger" (click)="cancelar()" style="position: absolute; ">Cancelar</button>
+        </div>
+
+
+        
+        <div class="form-column">
+          <div class="form-group1">
+            <input type="text" id="correo" name="correo" [(ngModel)]="usuario.correo" class="form-control" placeholder="Correo">
+          </div>
+          <div class="form-group1">
+            <input type="text" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" class="form-control" placeholder="Telefono">
+          </div>
+          <div class="form-group1">
+            <input type="file" id="imagenPerfil" (change)="onImageEdit($event)" name="imagenPerfil" class="form-control" accept="image/*">
+            <!-- Utiliza la propiedad [src] para mostrar la imagen -->
+            <img class="perfil-image" [src]="usuario.imagenPerfil || defaultImageUrl" alt="Imagen de Perfil">
+          </div>
+          <div class="form-group1">
+            <label>Estado de Cuenta:</label>
+            <div class="position-relative">
+              <select id="estadoCuenta" [(ngModel)]="usuario.estadoCuenta" name="estadoCuenta" class="form-control" required placeholder="Estado de Cuenta"
+                [disabled]="usuario.estadoCuenta === 'eliminado'">
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+                <option value="suspendido">Suspendido</option>
+                <option value="eliminado">Eliminado</option>
+              </select>
+              <span class="fa fa-chevron-down select-indicator"></span>
+            </div>
+          </div>
+         
+          <!-- Agrega otros campos para la segunda columna aquí -->
+        </div>
+      </form>
+    </div>
+
+  </div>
+  

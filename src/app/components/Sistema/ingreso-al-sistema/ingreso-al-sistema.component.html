@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  @import '~bootstrap/dist/css/bootstrap.min.css';
+  <title>Página con Barra Lateral</title>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="content-container">
+      <div class="user-container">
+        <img class="user-icon" id="user-icon" [src]="sanitizeImage(imagenPerfil)" alt="Imagen de Perfil">
+        <div class="user-details">
+          <p class="user-name">{{ nombresUsuario }}</p>
+          <p class="user-name">{{ apellidosUsuario }}</p>
+          <p class="user-role">{{ rolUsuario }}</p>
+        </div>
+        <div class="user-divider"></div> 
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/consulta.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="toggLeConsulta()"  [disabled]="!checkPermisoConsulta()">CONSULTAS Y REPORTES</button>
+        </div>
+        <div class="sub-menu" *ngIf="isConsultaOpen">
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="listadoPendienteConfirmacion()">Pendientes de confirmar</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="listadoFechaParto()">Fecha de parto</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="ReportesVentas()">Reporte Ventas</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="ReportesCompras()">Reporte Compras</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/registro.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="toggleRegistro()" [disabled]="!checkPermisoRegistro()">REGISTRO</button>
+        </div>
+        <div class="sub-menu" *ngIf="isRegistroOpen">
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="listadoCerda()" >Ingreso de cerdas</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="listadoBarraco()">Ingreso de barracos</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/inventario.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="toggleInventario()"  [disabled]="!checkPermisoReporte()">COMPRAS</button>
+        </div>
+        <div class="sub-menu" *ngIf="isInventarioOpen">
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="producto()">Productos</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="facturacionC()" >Facturacion</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"  (click)="compras()">Compras</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn" (click)="proveedor()" >Proveedores</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/ventas.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="toggleVentas()"  [disabled]="!checkPermisoInventario()">VENTAS</button>
+        </div>
+        <div class="sub-menu" *ngIf="isVentasOpen">
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="CamadaLechones()"  >Stock Lechones</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="listadoCliente()"  >Clientes</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="facturacion()"  >Facturacion</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="Ventas()"  >Ventas</button>
+          </div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/control.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="toggleGestacion()" [disabled]="!checkPermisoControl()">CONTROL DE GESTACION</button>
+        </div>
+        <div class="sub-menu" *ngIf="isGestacionOpen">
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="listadoControlCerda()">Control de cerda</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="listadoControlParto()" >Control de parto</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="listadoControlDestete()" >Control de destete</button>
+          </div>
+          <div class="icono">
+            <img src="assets/indicador.svg" alt="Icono 1" class="sub-icono">
+            <button class="sub-btn"(click)="InfoParto()" >Información de Partos</button>
+          </div>
+        
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/user-add.svg" alt="Icono 1" class="sub-icono">
+          <button class="btn" (click)="listadoUsuario()" [disabled]="!checkPermisoUsuarios()" >USUARIO</button>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="icono">
+          <img src="assets/lock.svg" alt="Icono 1" class="sub-icono">
+          <a class="nav-link"><app-logout-button>SALIR</app-logout-button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-container" *ngIf="showChart">
+    <canvas id="userStatusChart"></canvas>
+  </div>
+
+  <! Gráfico de Barras ('bar'): Muestra datos en barras horizontales o verticales.
+
+  Gráfico de Líneas ('line'): Representa datos mediante una línea continua que conecta los puntos de datos.
+  
+  Gráfico de Pastel ('pie', 'doughnut'): Muestra los datos en forma de círculo, dividiendo el círculo en segmentos proporcionales a los valores.
+  
+  Gráfico de Radar ('radar'): Utilizado para mostrar datos en un formato radial, con ejes que parten del centro.
+  
+  Gráfico de Burbujas ('bubble'): Representa datos en burbujas con diferentes tamaños en función de los valores.
+  
+  Gráfico de Área ('area'): Similar al gráfico de líneas, pero el área bajo la línea se rellena, lo que permite mostrar tendencias y áreas de enfoque.
+  
+  Gráfico de Dispersión ('scatter'): Muestra puntos de datos individuales sin conectarlos.
+  
+  Gráfico de Barras Apiladas ('bar' con la opción stacked: true): Muestra barras apiladas unas sobre otras para comparar la contribución de diferentes categorías.
+  
+  Gráfico de Área Apilada ('area' con la opción stacked: true): Similar al gráfico de área, pero con áreas apiladas para mostrar la contribución relativa de cada categoría.
+  
+  Gráfico de Radar Polar ('polarArea'): Un gráfico polar que muestra datos en forma de sectores.>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,27 @@
+<!-- Encabezado -->
+<div class="separar"> 
+    <div class="header">
+        <img src="/assets/Logotipo.png" alt="Logo de Granja Santa Sofía" width="100" height="100">
+        <h1>Reportes de Ventas</h1>
+        <p>Empresa: Granja Santa Sofía</p>
+        <p>Ubicación: San Lucas Tolimán, Sololá</p>
+        <p>Fecha: {{ currentDate | date:'dd/MM/yyyy' }}</p>
+      </div>
+      
+      <!-- Informes -->
+      <div class="report-container">
+        <!-- Primer informe de ventas -->
+        <div class="report">
+          <h2>Informe de Ventas</h2>
+          <canvas #chartContainer></canvas>
+        </div>
+      
+        <!-- Segundo informe (inventa un tipo de informe) -->
+        <div class="report">
+          <h2>Informe del Mes</h2>
+          <canvas #chartContainer2></canvas>
+          <!-- Agrega aquí el contenido de tu segundo informe -->
+        </div>
+      </div>
+      <button (click)="generarPDF()" class="generar-pdf-button">Generar PDF</button>
+    </div>

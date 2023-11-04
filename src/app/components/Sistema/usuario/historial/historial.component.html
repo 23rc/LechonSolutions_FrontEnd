@@ -1,0 +1,11 @@
+<h2>Historial de Sesiones</h2>
+<div class="modal-content">
+    <!-- Contenido del modal aquí -->
+    <ul>
+        <li *ngFor="let sesion of historial">
+          Fecha: {{ sesion.fecha_inicio_sesion | date }}<br>
+          Dirección IP: {{ sesion.direccion_ip }}<br>
+          Dispositivo: {{ sesion.dispositivo }}
+        </li>
+      </ul>
+  </div>

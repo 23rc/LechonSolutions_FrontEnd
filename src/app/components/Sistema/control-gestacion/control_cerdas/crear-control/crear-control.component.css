@@ -1,0 +1,115 @@
+.container {
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0) url('/assets/formulario.jpg') ;
+    border-radius: 8px;
+    padding: 30px;
+  }
+  .titulo {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+  }
+  .form-group {
+    margin-bottom: 23px;
+  }
+  .form-group2 {
+    margin-bottom: 23px;
+  }
+  label {
+    font-weight: bold;
+    color: #555;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  .btn {
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    margin-top: 25px;
+    margin-left: 5px;
+    width: 160px;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    margin-left: 180px;
+    margin-top: -65px;
+    width: 160px;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  .alert {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    margin-top: 5px;
+    margin-left: -360px;
+    text-align: center;
+  }
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    font:center;
+    margin-top: 5px;
+    margin-left: -360px;
+    text-align: center;
+  }
+  /* Establece estilos para la flecha indicadora de FontAwesome */
+  .select-indicator {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #555;
+  }
+  
+  .form-flexbox {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-column {
+    flex: 1;
+    padding: 10px;
+  }
+
+
+
+  .colorSeleccion:hover {
+    background-color: rgb(169, 171, 173);
+    color: white; /* Cambia el color del texto según tus preferencias */
+
+
+  }
+
+  .colorSeleccion:focus {
+    background-color: #e0e0e0; /* Cambia el color de fondo en foco */
+    color: #000000; /* Cambia el color del texto en foco */
+
+  }
+  .readonly-input {
+    background-color: rgba(59, 58, 58, 0.179); /* Cambia el color de fondo a uno opaco */
+    color: #000; /* Cambia el color del texto si es necesario */
+    /* Agrega otros estilos según tus preferencias */
+}
