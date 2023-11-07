@@ -2,7 +2,6 @@
   width: 800px;
   height: 500px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0) url('/assets/formulario.jpg') ;
   border-radius: 8px;
   padding: 50px;
 }
@@ -71,7 +70,6 @@ label {
   margin-left: -360px;
   text-align: center;
 }
-/* Establece estilos para la flecha indicadora de FontAwesome */
 .select-indicator {
   position: absolute;
   top: 50%;

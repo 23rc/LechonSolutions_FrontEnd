@@ -1,8 +1,6 @@
-/* Estilos globales */
 body {
-  margin-left: 221px; /* Agrega espacio en el lado izquierdo */
+  margin-left: 221px;
 }
-/* Estilos del encabezado */
 .header {
   background-color: #007BFF;
   color: #fff;
@@ -59,7 +57,6 @@ body {
   text-align: center;
   font-size: 11px;
 }
-/* Estilos de los botones en la tabla */
 .delete-button, .edit-button {
   background-color: #c70303;
   color: #fff;
@@ -73,7 +70,6 @@ body {
 .edit-button {
   background-color: #0f1fac;
 }
-/* Estilos de los controles de paginación */
 .pagination-controls {
   display: flex;
   justify-content: center;
@@ -89,7 +85,6 @@ body {
   font-size: 16px;
   margin-right: 5px;
 }
-/* Estilo para los íconos de ordenamiento */
 .sort-icon {
   display: inline-block;
   width: 0;
@@ -107,7 +102,6 @@ body {
   content: "\2193";
   color: red;
 }
-
 .table-cell-id {
   min-width: 65px;
   overflow: hidden;
@@ -120,24 +114,20 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-
 .button-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .custom-button {
   background: none;
   border: none;
   cursor: pointer;
 }
-
 .historial-image {
   max-width: 32px;
   max-height: 32px;
 }
-/* Estilos del mensaje de éxito */
 .success-alert {
   background: #12cc7e;
   color: white;
@@ -180,7 +170,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 30%;
 }
-
 .modal-content p {
   font-size: 16px;
   margin-bottom: 20px;
@@ -206,11 +195,10 @@ body {
 .confirm-button:hover, .cancel-button:hover {
   background-color: #0056b3;
 }
-/* Contenido principal */
 .content {
   margin-top: 6px;
 }
-/* Input de búsqueda y filtro */
+
 .search-and-filter {
   display: flex;
   align-items: center;
@@ -219,7 +207,7 @@ body {
 }
 .table-container {
   width: 100%;
-  max-height: 480px; /* Altura máxima para habilitar desplazamiento vertical */
-  overflow-x: auto; /* Riel de desplazamiento horizontal si es necesario */
-  overflow-y: auto; /* Riel de desplazamiento vertical si es necesario */
+  max-height: 480px; 
+  overflow-x: auto; 
+  overflow-y: auto; 
 }

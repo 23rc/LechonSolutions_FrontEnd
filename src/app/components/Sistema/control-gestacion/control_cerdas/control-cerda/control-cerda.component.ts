@@ -2,16 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
-
 import { CrearControlComponent  } from '../crear-control/crear-control.component';
 import { EditarControlComponent  } from '../editar-control/editar-control.component';
-
-
 import { ControlCerdaService  } from 'src/app/services/controlCerda.service'; // Importa el nuevo servicio
-import { ElementRef } from '@angular/core';
 import { ToastrService, IndividualConfig } from 'ngx-toastr';
-
-
 @Component({
   selector: 'app-control-cerda',
   templateUrl: './control-cerda.component.html',
@@ -31,57 +25,39 @@ export class ControlCerdaComponent {
   sortDirection: number = 1; // 1 para ascendente, -1 para descendente
   searchText: string = ''; // Texto de búsqueda
   toastrConfigTime = { timeOut: 1500 }; // Por defecto, 3 segundos
-
-
-
   constructor(
     private toastr: ToastrService,
     private controlCerdaService: ControlCerdaService,private authService: AuthService, private modalService: NgbModal, private router: Router) {
-    this.sortedColumn = 'id'; // Establece la columna inicialmente ordenada
-    this.sortDirection = 1; // 1 para ascendente, -1 para descendente (puede ajustarlo según su preferencia)
-
+    this.sortedColumn = 'id';
+    this.sortDirection = 1; 
   }
-
   ngOnInit(): void {
     this.controlCerdaService.getData().subscribe(data => {
       console.log('Datos de usuarios:', data); // Agregar esta línea para verificar los datos
       this.contenedorDB = data;
       
     });
-    
   }
-
-
-
-  
-
   nextPage() {
     if (this.currentPage < this.contenedorDB.length / this.pageSize - 1) {
       this.currentPage++;
     }
   }
-
   previousPage() {
     if (this.currentPage > 0) {
       this.currentPage--;
     }
   }
-
-  // Función para mostrar el modal de confirmación
   showDeleteConfirmation(contenedorLocal: any) {
     this.ToDelete = contenedorLocal;
     this.showConfirmationModal = true;
   }
   showSuccessMessage(message: string) {
     this.successMessage = message;
-
-    // Cierra automáticamente el mensaje de éxito después de 3000 milisegundos (3 segundos)
     setTimeout(() => {
       this.closeSuccessAlert();
     }, 1000);
   }
-
-  // Función para confirmar la eliminación
   confirmDelete() {
     this.controlCerdaService.delete(this.ToDelete.id).subscribe(
       () => {
@@ -100,8 +76,6 @@ export class ControlCerdaComponent {
       }
     );
   }
-
-  // Función para cancelar la eliminación
   cancelDelete() {
     this.closeDeleteConfirmation();
   }

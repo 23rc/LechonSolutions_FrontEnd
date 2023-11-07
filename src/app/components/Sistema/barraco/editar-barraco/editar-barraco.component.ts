@@ -3,8 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { BarracoService } from 'src/app/services/barraco.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'; // Importa NgbActiveModal para controlar el modal
 import { ToastrService } from 'ngx-toastr';
-
-
 @Component({
   selector: 'app-editar-barraco',
   templateUrl: './editar-barraco.component.html',
@@ -24,24 +22,17 @@ export class EditarBarracoComponent {
     private componentFactoryResolver: ComponentFactoryResolver,
     private barracoService: BarracoService,
   ) {}
-
   ngOnInit(): void {
-   
-  }
+     }
   guardarCambios() {
     // Utiliza el servicio usuarioService para enviar los cambios al servidor
     this.barracoService.editar(this.usuario.id, this.usuario).subscribe(
       (response) => {
-        // Manejar la respuesta exitosa del servidor, si es necesario
-        console.log('Usuario actualizado exitosamente:', response);
-
-        // Muestra el mensaje de éxito y cierra el modal
-        this.exito = true;
+           console.log('Usuario actualizado exitosamente:', response);
+         this.exito = true;
         this.toastr.success('Barraco actualizado con éxito', 'Correcto!!',this.toastrConfigTime);
-        // Cierra el modal después de 2 segundos (puedes ajustar el tiempo)
-        setTimeout(() => {
-          // Llama a refreshUserList para actualizar la lista de usuarios en el componente de lista
-          this.activeModal.close('Guardado con éxito');
+            setTimeout(() => {
+                  this.activeModal.close('Guardado con éxito');
         }, 2000);
       },
       (error) => {
@@ -51,7 +42,6 @@ export class EditarBarracoComponent {
       }
     );
   }
-
   cancelar() {
     // Cierra el modal sin guardar cambios
     this.activeModal.dismiss('Cancelado');

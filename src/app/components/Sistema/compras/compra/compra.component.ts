@@ -14,7 +14,6 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
   styleUrls: ['./compra.component.css']
 })
 export class CompraComponent {
-
   contenedorDB: any[] = [];
   usuarios: any[] = [];
   pageSize: number = 10; // Cantidad de registros por página
@@ -28,16 +27,12 @@ export class CompraComponent {
   sortDirection: number = 1; // 1 para ascendente, -1 para descendente
   searchText: string = ''; // Texto de búsqueda
   toastrConfigTime = { timeOut: 1500 }; // Por defecto, 3 segundos
-  
-
-
-  constructor(
+    constructor(
     private toastr: ToastrService,
     private comprasService: ComprasService,private authService: AuthService, private modalService: NgbModal, private router: Router) {
     this.sortedColumn = 'id'; // Establece la columna inicialmente ordenada
     this.sortDirection = 1; // 1 para ascendente, -1 para descendente (puede ajustarlo según su preferencia)
   }
-
   ngOnInit(): void {
     this.comprasService.getData().subscribe(data => {
       console.log('Datos de usuarios:', data); // Agregar esta línea para verificar los datos
@@ -45,36 +40,26 @@ export class CompraComponent {
     });
     
   }
-
- 
-
   nextPage() {
     if (this.currentPage < this.contenedorDB.length / this.pageSize - 1) {
       this.currentPage++;
     }
   }
-
   previousPage() {
     if (this.currentPage > 0) {
       this.currentPage--;
     }
   }
-
-  // Función para mostrar el modal de confirmación
   showDeleteConfirmation(contenedorLocal: any) {
     this.ToDelete = contenedorLocal;
     this.showConfirmationModal = true;
   }
   showSuccessMessage(message: string) {
     this.successMessage = message;
-
-    // Cierra automáticamente el mensaje de éxito después de 3000 milisegundos (3 segundos)
-    setTimeout(() => {
+     setTimeout(() => {
       this.closeSuccessAlert();
     }, 1000);
   }
-
-  // Función para confirmar la eliminación
   confirmDelete() {
     this.comprasService.delete(this.ToDelete.id).subscribe(
       () => {
@@ -93,49 +78,32 @@ export class CompraComponent {
       }
     );
   }
-
-  // Función para cancelar la eliminación
   cancelDelete() {
     this.closeDeleteConfirmation();
   }
-
-  // Función para ocultar el modal de confirmación
   closeDeleteConfirmation() {
     this.showConfirmationModal = false;
     this.ToDelete = null;
-    
-  }
-
+      }
   closeSuccessAlert() {
     this.successMessage = null;
-   
-  }
-
+     }
   closeErrorAlert() {
     this.errorMessage = null;
   }
-
-  // Agrega una propiedad para controlar la visibilidad del modal
   showModal = false;
-
-  // Función para abrir el modal
   openModal() {
     this.showModal = true;
   }
-
- 
-
   closeModal() {
     this.showModal = false;
   }
-
   refreshList() {
     this.comprasService.getData().subscribe(data => {
       console.log('Datos de usuarios:', data);
       this.contenedorDB = data;
     });
-  }
-  // Función para ordenar la tabla por una columna
+  } 
   sortTable(column: string) {
     if (this.sortedColumn === column) {
       this.sortDirection *= -1;
@@ -143,8 +111,7 @@ export class CompraComponent {
       this.sortedColumn = column;
       this.sortDirection = 1;
     }
-  
-    this.contenedorDB.sort((a, b) => {
+      this.contenedorDB.sort((a, b) => {
       const valueA = a[column] !== null && a[column] !== undefined ?
         (column === 'id' ? a[column].toString() : a[column].toLowerCase()) :
         ''; // Verifica si el valor de la columna existe
@@ -161,10 +128,6 @@ export class CompraComponent {
       }
     });
   }
-  
-  
-
-// Función para filtrar usuarios por búsqueda
 get filtered() {
   return this.contenedorDB.filter(contenedorLocal => {
     const id = contenedorLocal.id ? contenedorLocal.id.toString() : '';
@@ -177,7 +140,6 @@ get filtered() {
     const estadoSalud = contenedorLocal.estadoSalud ? contenedorLocal.estadoSalud.toLowerCase() : '';
     const temperatura = contenedorLocal.temperatura ? contenedorLocal.temperatura.toLowerCase() : '';
     const precio = contenedorLocal.precio ? contenedorLocal.precio.toLowerCase() : '';
-
     return (
       id.includes(this.searchText.toLowerCase()) ||
       nombre.includes(this.searchText.toLowerCase()) ||

@@ -56,7 +56,7 @@
                     </th>
                     <th>Acciones</th>
                 </tr>
-                
+             
             </thead>
             <tbody>
                 <tr *ngFor="let contenedorLocal of visible">
@@ -68,8 +68,7 @@
                     <td class="table-cell">{{ contenedorLocal.IDProveedor }}</td>
                     <td class="table-cell">{{ contenedorLocal.IDProducto }}</td>
                     <td class="table-cell">{{ contenedorLocal.fecha }}</td>
-            
-                    <td class="table-cell-acciones">
+                                <td class="table-cell-acciones">
                         <button class="delete-button" (click)="showDeleteConfirmation(contenedorLocal)">Eliminar</button>
                     </td>
                 </tr>

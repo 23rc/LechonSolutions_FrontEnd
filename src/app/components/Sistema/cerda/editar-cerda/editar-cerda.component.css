@@ -2,34 +2,27 @@
   width: 800px;
   height: 500px;
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0) url('/assets/formulario.jpg') ;
   border-radius: 8px;
   padding: 50px;
 }
-
-.btn {
-  border: none;
+.btn {  border: none;
   border-radius: 5px;
   padding: 10px 10px;
   font-size: 16px;
   cursor: pointer;
 }
-
 .titulo {
   text-align: center;
   font-size: 24px;
   color: #333;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
-
 label {
   font-weight: bold;
   color: #555;
 }
-
 .button-container {
   display: flex;
   justify-content: space-between;
@@ -57,19 +50,14 @@ label {
 .btn-danger:hover {
   background-color: #c82333;
 }
-
-/* Establece estilos para la flecha indicadora de FontAwesome */
 .select-indicator {
   position: absolute;
   top: 50%;
-  right: 10px; /* Ajusta el espacio entre la flecha y el borde derecho */
+  right: 10px; 
   transform: translateY(-50%);
-  pointer-events: none; /* Evita que la flecha sea clickeable */
-  color: #555; /* Color de la flecha */
+  pointer-events: none; 
+  color: #555; 
 }
-
-/* Nuevos estilos para el mensaje de éxito */
-/* Estilos para el mensaje centrado */
 .centered-message {
   display: flex;
   justify-content: center;
@@ -97,15 +85,10 @@ label {
   height: 40px;
   margin-right: 10px;
 }
-
-
-
-
 .form-flexbox {
   display: flex;
   justify-content: space-between;
 }
-
 .form-column {
   flex: 1;
   padding: 10px;

@@ -1,10 +1,8 @@
 <div class="container">
   <h4 class="modal-title titulo">Editar Barraco</h4>
 <div class="modal-body">
-  <!-- Contenido del formulario para editar el usuario -->
   <form (submit)="guardarCambios()" class="form-flexbox">
-  
-      <div class="form-column">
+        <div class="form-column">
         <div class="form-group">
           <input type="text" id="nombre" name="nombre" [(ngModel)]="usuario.nombre" class="form-control" placeholder="Nombre">
       </div>
@@ -17,18 +15,14 @@
       <div class="form-group">
           <input type="text" id="observacion" name="observacion" [(ngModel)]="usuario.observacion" class="form-control" placeholder="Observación">
       </div>
-      <!-- Nuevos campos -->
       <div class="form-group">
           <input type="text" id="altura" name="altura" [(ngModel)]="usuario.altura" class="form-control" placeholder="Altura">
       </div>
       <div class="button-container">
         <button type="button" class="btn btn-primary" (click)="guardarCambios()">Guardar Cambios</button>
-        
-      </div>
+              </div>
     </div>
-
     <div class="form-column">
-
       <div class="form-group">
         <input type="text" id="ubicacion" name="ubicacion" [(ngModel)]="usuario.ubicacion" class="form-control" placeholder="Ubicación">
     </div>
@@ -45,9 +39,7 @@
       <button type="button" class="btn btn-danger" (click)="cancelar()">Cancelar</button>
     </div>
     </div>
-
 </form>
-
 </div>
 </div>
 
