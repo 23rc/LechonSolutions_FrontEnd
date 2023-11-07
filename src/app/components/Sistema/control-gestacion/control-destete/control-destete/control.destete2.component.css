@@ -1,0 +1,79 @@
+  /* Estilos de los botones en la tabla */
+  .delete-button, .edit-button {
+    background-color: #c70303;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 3px;
+  }
+  .edit-button {
+    background-color: #0f1fac;
+  }
+  /* Estilos de los controles de paginación */
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .pagination-button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  /* Estilo para los íconos de ordenamiento */
+  .sort-icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    margin-top: -20px;
+    vertical-align: middle;
+    font-size: 12px;
+  }
+  .sort-icon.fa-chevron-up::before {
+    content: "\2191";
+    color: rgba(10, 7, 212, 0.849);
+  }
+  .sort-icon.fa-chevron-down::before {
+    content: "\2193";
+    color: red;
+  }
+  
+  .table-cell-id {
+    min-width: 65px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .table-cell-acciones {
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .button-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .historial-image {
+    max-width: 32px;
+    max-height: 32px;
+  }
+  /* Estilos del mensaje de éxito */

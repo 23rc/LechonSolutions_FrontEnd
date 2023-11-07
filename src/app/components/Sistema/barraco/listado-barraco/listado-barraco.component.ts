@@ -13,7 +13,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-listado-barraco',
   templateUrl: './listado-barraco.component.html',
-  styleUrls: ['./listado-barraco.component.css']
+  styleUrls: ['./listado-barraco.component.css','./listado-barraco2.component.css','./listado-barraco3.components.css']
 })
 export class ListadoBarracoComponent {
   

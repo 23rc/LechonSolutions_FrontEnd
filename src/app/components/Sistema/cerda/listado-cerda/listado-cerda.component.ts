@@ -12,7 +12,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-listado-cerda',
   templateUrl: './listado-cerda.component.html',
-  styleUrls: ['./listado-cerda.component.css']
+  styleUrls: ['./listado-cerda.component.css','./listado-cerda2.component.css','./listado-cerda3.component.css']
 })
 export class ListadoCerdaComponent {
   

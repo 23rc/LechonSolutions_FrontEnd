@@ -1,0 +1,77 @@
+.table-cell-id {
+    min-width: 65px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .table-cell-acciones {
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .button-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .custom-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .historial-image {
+    max-width: 32px;
+    max-height: 32px;
+  }
+  /* Estilos del mensaje de éxito */
+  .success-alert {
+    background: #12cc7e;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+  }
+  .success-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  /* Estilos del modal de confirmación */
+  .confirmation-modal {
+    position: fixed;
+    top: 50%;
+    left: 55%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: #00000021;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background: #12cc7e;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 30%;
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }

@@ -9,7 +9,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-control-cerda',
   templateUrl: './control-cerda.component.html',
-  styleUrls: ['./control-cerda.component.css']
+  styleUrls: ['./control-cerda.component.css','./control-cerda2.component.css','./control.cerda3.component.css','./control-cerda4.component.css']
 })
 export class ControlCerdaComponent {
   contenedorDB: any[] = [];

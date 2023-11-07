@@ -12,7 +12,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
-  styleUrls: ['./producto.component.css']
+  styleUrls: ['./producto.component.css','./producto2.component.css','./producto3.component.css']
 })
 export class ProductoComponent {
 

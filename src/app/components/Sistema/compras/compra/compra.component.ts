@@ -11,7 +11,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-compra',
   templateUrl: './compra.component.html',
-  styleUrls: ['./compra.component.css']
+  styleUrls: ['./compra.component.css','./compra2.component.css','./compra3.component.css']
 })
 export class CompraComponent {
   contenedorDB: any[] = [];

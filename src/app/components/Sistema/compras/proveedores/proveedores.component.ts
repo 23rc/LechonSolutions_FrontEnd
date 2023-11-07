@@ -11,7 +11,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-proveedores',
   templateUrl: './proveedores.component.html',
-  styleUrls: ['./proveedores.component.css']
+  styleUrls: ['./proveedores.component.css','./proveedores2.component.css','./proveedores2.component.css']
 })
 export class ProveedoresComponent {
   contenedorDB: any[] = [];

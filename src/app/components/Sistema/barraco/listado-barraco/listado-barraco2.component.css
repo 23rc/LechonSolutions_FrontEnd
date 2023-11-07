@@ -1,8 +1,6 @@
-/* Estilos globales */
 body {
-    margin-left: 221px; /* Agrega espacio en el lado izquierdo */
+    margin-left: 221px;
   }
-  /* Estilos del encabezado */
   .header {
     background-color: #007BFF;
     color: #fff;
@@ -58,4 +56,22 @@ body {
     padding: 10px;
     text-align: center;
     font-size: 11px;
+  }
+  .delete-button, .edit-button {
+    background-color: #c70303;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 3px;
+  }
+  .edit-button {
+    background-color: #0f1fac;
+  }
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
   }

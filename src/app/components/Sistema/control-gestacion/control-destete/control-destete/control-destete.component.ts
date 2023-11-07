@@ -13,7 +13,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-control-destete',
   templateUrl: './control-destete.component.html',
-  styleUrls: ['./control-destete.component.css']
+  styleUrls: ['./control-destete.component.css','./control.destete2.component.css','./control-destete3.component.css']
 })
 export class ControlDesteteComponent {
   contenedorDB: any[] = [];
