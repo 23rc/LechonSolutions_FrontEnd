@@ -9,7 +9,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-pendiente-confirmacion',
   templateUrl: './pendiente-confirmacion.component.html',
-  styleUrls: ['./pendiente-confirmacion.component.css']
+  styleUrls: ['./pendiente-confirmacion.component.css','./pendiente-confirmacion2.component.css','./pendiente-confirmacion3.component.css','./pendiente-confirmacion4.component.css']
 })
 export class PendienteConfirmacionComponent {
   contenedorDB: any[] = [];

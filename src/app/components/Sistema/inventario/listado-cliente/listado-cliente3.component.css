@@ -1,4 +1,25 @@
-.confirmation-modal {
+.success-alert {
+    background: #12cc7e;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    text-align: center;
+  }
+  .success-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  /* Estilos del modal de confirmación */
+  .confirmation-modal {
     position: fixed;
     top: 50%;
     left: 55%;

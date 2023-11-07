@@ -1,4 +1,5 @@
-.confirmation-modal {
+  /* Estilos del modal de confirmación */
+  .confirmation-modal {
     position: fixed;
     top: 50%;
     left: 55%;

@@ -10,7 +10,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-ventas',
   templateUrl: './ventas.component.html',
-  styleUrls: ['./ventas.component.css']
+  styleUrls: ['./ventas.component.css','./ventas2.component.css','./ventas3.component.css']
 })
 export class VentasComponent {
 

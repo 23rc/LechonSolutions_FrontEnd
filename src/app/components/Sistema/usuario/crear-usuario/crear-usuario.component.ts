@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-crear-usuario',
   templateUrl: './crear-usuario.component.html',
-  styleUrls: ['./crear-usuario.component.css']
+  styleUrls: ['./crear-usuario.component.css','./crear-usuario2.component.css']
 })
 export class CrearUsuarioComponent implements OnInit{
 

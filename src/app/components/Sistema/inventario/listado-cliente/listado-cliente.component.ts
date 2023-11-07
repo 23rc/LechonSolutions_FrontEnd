@@ -10,7 +10,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-listado-cliente',
   templateUrl: './listado-cliente.component.html',
-  styleUrls: ['./listado-cliente.component.css']
+  styleUrls: ['./listado-cliente.component.css','./listado-cliente2.component.css','./listado-cliente3.component.css']
 })
 export class ListadoClienteComponent {
   contenedorDB: any[] = [];

@@ -1,4 +1,10 @@
-.pagination-button {
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .pagination-button {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -72,9 +78,3 @@
     font-size: 24px;
     text-align: center;
   }
-  .success-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  /* Estilos del modal de confirmación */

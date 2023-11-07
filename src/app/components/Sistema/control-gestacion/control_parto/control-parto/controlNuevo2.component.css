@@ -1,4 +1,39 @@
-.pagination-button {
+.edit-button {
+    background-color: #0f1fac;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 3px;
+  }
+  .pagination-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .nuevo-control {
+    background-color: #0f0097;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 3px;
+  }
+  .editar-control {
+    background-color: #00fffb;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-right: 3px;
+  }
+  .pagination-button {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -22,11 +57,11 @@
     content: "\2191";
     color: rgba(10, 7, 212, 0.849);
   }
-  .sort-icon.fa-chevron-down::before {
+  
+.sort-icon.fa-chevron-down::before {
     content: "\2193";
     color: red;
   }
-  
   .table-cell-id {
     min-width: 65px;
     overflow: hidden;
@@ -39,42 +74,8 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  
   .button-image-container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
-  .custom-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .historial-image {
-    max-width: 32px;
-    max-height: 32px;
-  }
-  /* Estilos del mensaje de éxito */
-  .success-alert {
-    background: #12cc7e;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    font-size: 24px;
-    text-align: center;
-  }
-  .success-icon {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  /* Estilos del modal de confirmación */

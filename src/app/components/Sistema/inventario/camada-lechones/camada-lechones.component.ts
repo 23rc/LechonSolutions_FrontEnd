@@ -9,7 +9,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-camada-lechones',
   templateUrl: './camada-lechones.component.html',
-  styleUrls: ['./camada-lechones.component.css']
+  styleUrls: ['./camada-lechones.component.css','./camada-lechones2.component.css','./camada-lechones3.component.css']
 })
 export class CamadaLechonesComponent {
   contenedorDB: any[] = [];

@@ -1,16 +1,4 @@
-.confirmation-modal {
-    position: fixed;
-    top: 50%;
-    left: 55%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    background: #00000021;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .modal-content {
+.modal-content {
     background: #12cc7e;
     border-radius: 5px;
     padding: 20px;
@@ -62,3 +50,21 @@
     overflow-x: auto; /* Riel de desplazamiento horizontal si es necesario */
     overflow-y: auto; /* Riel de desplazamiento vertical si es necesario */
   }
+  
+  .perfil-image {
+    width: 40px; /* Ancho de la imagen en píxeles */
+      height: 40px; /* Altura de la imagen en píxeles */
+      border-radius: 50%;
+  }
+  
+  th span {
+    vertical-align: middle; /* Alinea verticalmente los elementos span al centro */
+  }
+  
+  .historial-image {
+    width: 32px;
+    height: 32px;
+  
+  }
+  
+  

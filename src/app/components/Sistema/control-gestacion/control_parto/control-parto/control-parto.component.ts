@@ -20,7 +20,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-control-parto',
   templateUrl: './control-parto.component.html',
-  styleUrls: ['./control-parto.component.css','./controlNuevo.component.css']
+  styleUrls: ['./control-parto.component.css','./controlNuevo.component.css','./controlNuevo2.component.css']
 })
 export class ControlPartoComponent {
   showModal = false; // Variable para mostrar/ocultar el modal

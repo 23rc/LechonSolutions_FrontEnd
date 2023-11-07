@@ -10,7 +10,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-info-parto',
   templateUrl: './info-parto.component.html',
-  styleUrls: ['./info-parto.component.css']
+  styleUrls: ['./info-parto.component.css','./info-parto2.component.css','./info-parto3.component.css']
 })
 export class InfoPartoComponent {
 

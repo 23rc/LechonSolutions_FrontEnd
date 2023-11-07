@@ -10,7 +10,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-fecha-partos',
   templateUrl: './fecha-partos.component.html',
-  styleUrls: ['./fecha-partos.component.css']
+  styleUrls: ['./fecha-partos.component.css','./fecha-partos2.component.css','./fecha-partos3.component.css','./fecha-partos4.component.css']
 })
 export class FechaPartosComponent {
   contenedorDB: any[] = [];

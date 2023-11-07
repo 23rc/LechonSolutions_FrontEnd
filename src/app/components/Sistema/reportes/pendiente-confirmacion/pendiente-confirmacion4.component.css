@@ -1,0 +1,75 @@
+.table-container {
+    max-width: 3480px;
+    max-height: 480px; /* Altura máxima para habilitar desplazamiento vertical */
+    overflow-x: auto; /* Riel de desplazamiento horizontal si es necesario */
+    overflow-y: auto; /* Riel de desplazamiento vertical si es necesario */
+  }
+  /* Clase para celdas cargadas */
+ /* Clase para celdas con fecha_posible_parto próxima en 1 día (rojo) */
+.proxima-parto {
+    background-color: rgb(255, 0, 0); /* Cambia el color a tu elección (amarillo) */
+    color: rgb(255, 255, 255); /* Cambia el color de texto si es necesario */
+  }
+  /* Clase para celdas con fecha_posible_parto faltando 2 a 8 días (anaranjado) */
+  .dos-dias {
+    background-color: rgb(255, 149, 0); /* Cambia el color a tu elección (rojo) */
+    color: white; /* Cambia el color de texto si es necesario */
+  }
+  
+  /* Clase para celdas con fecha_posible_parto faltando 8 a 15 días (azul) */
+  .ocho-dias {
+    background-color:rgb(92, 238, 92); /* Cambia el color a tu elección (naranja) */
+    color: black; /* Cambia el color de texto si es necesario */
+  }
+  
+  /* Clase para celdas con fecha_posible_parto faltando más de 15 días (verde) */
+  .mas-de-quince-dias {
+    background-color: rgb(92, 238, 92); /* Cambia el color a tu elección (verde) */
+    color: rgb(0, 0, 0); /* Cambia el color de texto si es necesario */
+  }
+  
+  /* Clase para celdas con fecha_posible_parto pasada (color gris) */
+  .fecha-pasada {
+    background-color: gray; /* Cambia el color a tu elección (gris) */
+    color: white; /* Cambia el color de texto si es necesario */
+  }
+  /*SEMAFORO*/
+.status-and-search {
+  display: flex; /* Utilizamos flexbox para poner los elementos en una fila */
+  justify-content: space-between; /* Alinea los elementos a los extremos (izquierda y derecha) */
+}
+
+.status-indicators {
+  display: flex; /* Utilizamos flexbox para poner los elementos en una fila */
+}
+
+.status-indicator {
+  margin-right: 10px; /* Espaciado entre los indicadores (ajusta según sea necesario) */
+}
+
+.status-circle {
+  width: 20px; /* Ajusta el tamaño del círculo según tus necesidades */
+  height: 20px;
+  border-radius: 50%;
+}
+
+.proximo {
+  background-color: red; /* Círculo rojo para "Próximo" */
+}
+
+.anaranjado {
+  background-color: orange; /* Círculo naranja para "Más de 2 días" */
+}
+
+.verde {
+  background-color: green; /* Círculo verde para "Más de 8 días" */
+}
+
+.gris {
+  background-color: gray; /* Círculo gris para "Pasado" */
+}
+
+.clear-background {
+  background: transparent; /* Fondo claro para el buscador */
+}
+
