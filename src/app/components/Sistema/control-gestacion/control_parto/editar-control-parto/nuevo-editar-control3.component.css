@@ -1,0 +1,116 @@
+
+  /********************************************TABLA TRATAMIENTOS**************************************************************/
+  .table-containerTratamiento {
+    width: 620px; /* Ancho de la tabla */
+    overflow: hidden; /* Oculta el desbordamiento horizontal */
+    position: relative; /* Establece una posición relativa para permitir el posicionamiento absoluto */
+  }
+  .tableTratamiento {
+    width: 100%; /* Ancho de la tabla */
+    border-collapse: collapse;
+  }
+  .titulos{
+    background-color:#434141;
+    color: white;
+    width: 100%;
+    padding: 2px;
+    font-size: 12px;
+  }
+  .table-scroll {
+    overflow-x: auto; /* Agrega una barra de desplazamiento horizontal */
+    max-width: 100%; /* Establece un ancho máximo para el contenedor de desplazamiento */
+    max-height: 113px;
+  }
+  .table-head {
+    background-color: #434141;
+    color: rgb(0, 0, 0);
+    position: sticky; /* Mantiene el encabezado fijo */
+    top: 0; /* Fija el encabezado en la parte superior del contenedor */
+    z-index: 1; /* Evita que el contenido lo cubra */
+    padding: 2px;
+  }
+  .tableTratamiento th, .tableTratamiento td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 2px;
+    font-size: 9px;
+  }
+  .tableTratamiento tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilo para las celdas de fecha (anteriormente formateadas) */
+  .tableTratamiento td.table-cell {
+    width: 120px;
+    background-color: #f2f2f2;
+  }
+  
+  .mostrar {
+    display: table-row; /* Muestra la fila */
+  }
+  .ocultar {
+    display: none; /* Oculta la fila */
+  }
+  /********************************************TABLA RESUMEN PARTO**************************************************************/
+  .tableTratamientot {
+    transform: rotate(-90deg);
+    transform-origin: right top;
+    white-space: nowrap;
+    margin-left: -245.5px;
+  
+  }
+  .rotate-text {
+    transform: rotate(90deg); /* Rota el texto en 90 grados */
+    transform-origin: center; /* Define el punto de origen de la rotación en el centro */
+    white-space: nowrap; /* Evita que el texto se ajuste automáticamente al contenedor */
+    width: 60px; /* Ajusta el ancho del botón según sea necesario */
+    margin-top: 150px;
+  }
+  .espacioP{
+    height: -20px;
+  }
+  .table-scrollt {
+    overflow-x: auto; 
+    overflow-y:hidden;
+    max-width: 100%; 
+    max-height: 295px;
+  }
+  .tableTratamientot th, .tableTratamientot td {
+    writing-mode: vertical-rl;
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 2px;
+    font-size: 9px;
+    background-color: white;
+    width: 20px;
+    height: 310px;
+  
+  }
+  .table-headt th span {
+    white-space: nowrap; /* Restablece la propiedad white-space a su valor predeterminado */
+    height: auto;
+    width: 20px;
+    color: rgb(0, 0, 0);
+  }
+  .table-headt {
+    background-color: #434141;
+    color: rgb(0, 0, 0);
+    position: sticky;
+    position: -webkit-sticky; /* Para navegadores basados en WebKit (Chrome, Safari) */
+    top: 0;
+    z-index: 1;
+    padding: 2px;
+    transform: rotate(0deg); /* Deshacer la rotación */
+    transform-origin: left top;
+    font-size: 8px;
+  }
+  
+  /* Ajusta el estilo del encabezado girado */
+  .table-headt th {
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    height: auto;
+    width: 20px;
+    color: white;
+  }
+  

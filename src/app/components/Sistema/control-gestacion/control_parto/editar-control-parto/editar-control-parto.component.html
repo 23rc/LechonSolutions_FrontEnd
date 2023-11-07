@@ -1,3 +1,4 @@
+
 <div class="container">
   <h4 class="modal-title titulo">{{ modoEdicion ? 'Editar' : 'Nuevo' }} Parto</h4>
     
@@ -18,9 +19,9 @@
               <td class="data-cell">
                 <input type="text" id="numero_partoP" name="numero_partoP" [(ngModel)]="partoData.numero_partoP" class="form-control"  placeholder="NUMERO DE PARTO" [disabled]="!modoEdicion">
               </td>
-
             </tr>
             <tr>
+              
               <td class="label-cell">ID CERDA:</td>
               <td class="data-cell">
                 <input type="text" id="id_cerda" name="id_cerda" [(ngModel)]="usuario.id_cerda" class="form-control"  placeholder="ID DE LA CERDA" disabled  >

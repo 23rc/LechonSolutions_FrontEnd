@@ -35,7 +35,7 @@ interface MyToken {
 @Component({
   selector: 'app-editar-control-parto',
   templateUrl: './editar-control-parto.component.html',
-  styleUrls: ['./editar-control-parto.component.css']
+  styleUrls: ['./editar-control-parto.component.css','./nuevo-editar-control.component.css','./nuevo-editar-control2.component.css','./nuevo-editar-control3.component.css']
 })
 export class EditarControlPartoComponent {
   Tratamiento: any[] = [];

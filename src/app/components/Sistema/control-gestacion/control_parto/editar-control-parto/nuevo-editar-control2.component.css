@@ -1,0 +1,104 @@
+.success-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  .form-flexbox {
+    display: flex;
+    justify-content: space-between;
+  }
+  .form-column {
+    flex: 1;
+    padding: 10px;
+    margin-bottom: 10px; /* Espacio vertical entre las tablas */
+  }
+  /********************************************PRIMER TABLA**************************************************************/
+  .primer_tabla {
+    border-collapse: collapse;
+    width: 100%;
+    bottom: 50px;
+  }
+  .form-groupP {
+    display: table-row;
+    padding-bottom: 50px;
+  }
+  .label-cell {
+    background-color: #e0e0e0;
+    font-weight: bold;
+    padding: 2px;
+    border: 1px solid #000; /* Contorno de la celda */
+    font-size: 10px;
+  }
+    .data-cell {
+      padding: 5px;
+      border: 1px solid #000; /* Contorno de la celda */
+    }
+
+    .form-control {
+      width: 100%; /* Ajusta el ancho del input al 100% del espacio de la celda */
+      border: 1px solid #000; /* Contorno del input */
+      border-radius: 5px; /* Borde redondeado del input */
+      padding: 2px;
+      font-size: 10px;
+    }
+
+    .title-cell {
+      background-color: #585555;
+      font-weight: bold;
+      text-align: center;
+      padding: 2px;
+      color: white;
+      border-bottom: 1px solid #f7f7f7;
+      font-size: 12px;
+    }
+    .title-divider {
+      border-bottom: 6px solid #002b7561;
+    }
+  /********************************************SEGUNDA TABLA**************************************************************/
+  .espacio{
+    height: 4px;
+  }
+  .segunda_tabla2 {
+    top: 100px;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .segunda_tabla2 th,
+  .segunda_tabla2 td {
+    border: 1px solid #000;
+    padding: 2px;
+    text-align: center;
+    font-size: 10px;
+  }
+  .botonDinamico {
+    width: 160px;
+    font-size: 12px;
+    height: 30px; /* Ajusta la altura según tus necesidades */
+    cursor: pointer; /* Cursor de tipo puntero */
+  }
+  
+  /* Estilo para el botón "Editar" cuando modoEdicion es true */
+  .btn-successi {
+    background-color: #007bff;/* Color de fondo verde para "Editar" */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    position: fixed;
+    bottom: 630px; /* Ajusta la posición vertical según tus necesidades */
+    left: 260px; /* Ajusta la posición horizontal según tus necesidades */
+  
+  }
+  .btn-primaryi-left {
+    background-color: #007bff; /* Color de fondo azul para "Nuevo" */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    position: fixed;
+    bottom: 630px; /* Ajusta la posición vertical según tus necesidades */
+    right: 1110px; /* Ajusta la posición horizontal según tus necesidades */
+  }
+  .segunda_tabla2 th {
+    background-color: #595959;
+    font-weight: bold;
+    font-size: 12px;
+  }
+  
