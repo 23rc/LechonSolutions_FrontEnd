@@ -104,10 +104,6 @@
   .btn-success:hover {
     background-color: #22c642;
   }
-  
-  
-  /* Nuevos estilos para el mensaje de éxito */
-  /* Estilos para el mensaje centrado */
   .centered-message {
     display: flex;
     justify-content: center;
@@ -135,38 +131,25 @@
     height: 40px;
     margin-right: 10px;
   }
-  
-  
-  
-  
   .form-flexbox {
     display: flex;
     justify-content: space-between;
   }
-  
   .form-column {
     flex: 1;
     padding: 10px;
     margin-bottom: 10px; /* Espacio vertical entre las tablas */
   }
-  /* Estilo para la cabecera */
-
-/* Estilo para el botón */
-
-  
 /********************************************PRIMER TABLA**************************************************************/
-
   .primer_tabla {
     border-collapse: collapse;
     width: 100%;
     bottom: 50px;
   }
-
   .form-groupP {
     display: table-row;
     padding-bottom: 50px;
   }
-
   .label-cell {
     background-color: #e0e0e0;
     font-weight: bold;
@@ -174,12 +157,10 @@
     border: 1px solid #000; /* Contorno de la celda */
     font-size: 10px;
   }
-
   .data-cell {
     padding: 5px;
     border: 1px solid #000; /* Contorno de la celda */
   }
-
   .form-control {
     width: 100%; /* Ajusta el ancho del input al 100% del espacio de la celda */
     border: 1px solid #000; /* Contorno del input */
@@ -187,8 +168,6 @@
     padding: 2px;
     font-size: 10px;
   }
-
-
   .title-cell {
     background-color: #585555;
     font-weight: bold;
@@ -198,13 +177,9 @@
     border-bottom: 1px solid #f7f7f7;
     font-size: 12px;
   }
-
   .title-divider {
     border-bottom: 6px solid #002b7561;
   }
-  
-
-
 /********************************************SEGUNDA TABLA**************************************************************/
 .espacio{
   height: 4px;
@@ -214,7 +189,6 @@
   border-collapse: collapse;
   width: 100%;
 }
-
 .segunda_tabla2 th,
 .segunda_tabla2 td {
   border: 1px solid #000;
@@ -222,8 +196,6 @@
   text-align: center;
   font-size: 10px;
 }
-
-
 
 /* Estilo base para ambos botones */
 .botonDinamico {
@@ -233,7 +205,6 @@
   cursor: pointer; /* Cursor de tipo puntero */
 }
 
-/* Estilo para el botón "Editar" cuando modoEdicion es true */
 .btn-successi {
   background-color: #007bff;/* Color de fondo verde para "Editar" */
   color: white; /* Texto en blanco */
@@ -243,8 +214,6 @@
   left: 260px; /* Ajusta la posición horizontal según tus necesidades */
 
 }
-
-/* Estilo para el botón "Nuevo" cuando modoEdicion es false */
 .btn-primaryi-left {
   background-color: #007bff; /* Color de fondo azul para "Nuevo" */
   color: white; /* Texto en blanco */
@@ -253,8 +222,6 @@
   bottom: 630px; /* Ajusta la posición vertical según tus necesidades */
   right: 1110px; /* Ajusta la posición horizontal según tus necesidades */
 }
-
-
 .segunda_tabla2 th {
   background-color: #595959;
   font-weight: bold;
@@ -275,14 +242,11 @@
   font-size: 10px;
 }
 /********************************************TABLA TRATAMIENTOS**************************************************************/
-/* Estilo para el contenedor de la tabla */
 .table-containerTratamiento {
   width: 620px; /* Ancho de la tabla */
   overflow: hidden; /* Oculta el desbordamiento horizontal */
   position: relative; /* Establece una posición relativa para permitir el posicionamiento absoluto */
 }
-
-/* Estilo para la tabla */
 .tableTratamiento {
   width: 100%; /* Ancho de la tabla */
   border-collapse: collapse;
@@ -294,14 +258,11 @@
   padding: 2px;
   font-size: 12px;
 }
-/* Estilo para el desplazamiento (riel) */
 .table-scroll {
   overflow-x: auto; /* Agrega una barra de desplazamiento horizontal */
   max-width: 100%; /* Establece un ancho máximo para el contenedor de desplazamiento */
   max-height: 113px;
 }
-
-/* Estilo para el encabezado de la tabla (los títulos) */
 .table-head {
   background-color: #434141;
   color: rgb(0, 0, 0);
@@ -310,41 +271,31 @@
   z-index: 1; /* Evita que el contenido lo cubra */
   padding: 2px;
 }
-
-/* Estilo para las celdas de la tabla */
 .tableTratamiento th, .tableTratamiento td {
   border: 1px solid #ccc;
   text-align: center;
   padding: 2px;
   font-size: 9px;
 }
-
-/* Estilo para las filas impares */
 .tableTratamiento tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
-
-/* Estilo para las celdas de fecha (anteriormente formateadas) */
 .tableTratamiento td.table-cell {
   width: 120px;
   background-color: #f2f2f2;
 }
-
 .mostrar {
   display: table-row; /* Muestra la fila */
 }
-
 .ocultar {
   display: none; /* Oculta la fila */
 }
 /********************************************TABLA RESUMEN PARTO**************************************************************/
-/* Aplicar rotación de 90 grados solo a la tabla */
 .tableTratamientot {
   transform: rotate(-90deg);
   transform-origin: right top;
   white-space: nowrap;
   margin-left: -245.5px;
-
 }
 .rotate-text {
   transform: rotate(90deg); /* Rota el texto en 90 grados */
@@ -353,18 +304,15 @@
   width: 60px; /* Ajusta el ancho del botón según sea necesario */
   margin-top: 150px;
 }
-
 .espacioP{
   height: -20px;
 }
-
 .table-scrollt {
   overflow-x: auto; 
   overflow-y:hidden;
   max-width: 100%; 
   max-height: 295px;
 }
-/* Ajustar el estilo de las celdas */
 .tableTratamientot th, .tableTratamientot td {
   writing-mode: vertical-rl;
   border: 1px solid #ccc;
@@ -376,18 +324,12 @@
   height: 310px;
 
 }
-
-/* Ajusta el estilo del encabezado de la tabla para que no sea estático */
 .table-headt th span {
   white-space: nowrap; /* Restablece la propiedad white-space a su valor predeterminado */
   height: auto;
   width: 20px;
   color: rgb(0, 0, 0);
 }
-
-
-/* Restablecer el estilo del encabezado */
-/* Estilo para el encabezado de la tabla (los títulos) */
 .table-headt {
   background-color: #434141;
   color: rgb(0, 0, 0);
@@ -400,8 +342,6 @@
   transform-origin: left top;
   font-size: 8px;
 }
-
-/* Ajusta el estilo del encabezado girado */
 .table-headt th {
   writing-mode: vertical-rl;
   white-space: nowrap;
@@ -409,14 +349,7 @@
   width: 20px;
   color: white;
 }
-
-
-/* Estilo para el desplazamiento (riel) */
-/* Ajusta el estilo del contenedor de desplazamiento para que los rieles estén más cerca de la tabla */
-
-/* Estilo para el contenedor de títulos */
 /**************************************************TABLA PARTO***********************************************************************/
-/* Estilo para el contenedor de la tabla */
 .table-containerTratamientoP {
   width: 620px; /* Ancho de la tabla */
   overflow: hidden; /* Oculta el desbordamiento horizontal */
@@ -426,8 +359,6 @@
   border: 1px solid #ccc; /* Añade un borde según tus necesidades */
   z-index: 1; /* Ajusta el valor de z-index para que aparezca por encima de otros elementos según tus necesidades */
 }
-
-/* Estilo para la tabla */
 .tableTratamientoP {
   width: 100%; /* Ancho de la tabla */
   border-collapse: collapse;
@@ -439,14 +370,11 @@
   padding: 2px;
   font-size: 12px;
 }
-/* Estilo para el desplazamiento (riel) */
 .table-scrollP{
   overflow-x: auto; /* Agrega una barra de desplazamiento horizontal */
   max-width: 670px; /* Establece un ancho máximo para el contenedor de desplazamiento */
   max-height: 300px;
 }
-
-/* Estilo para el encabezado de la tabla (los títulos) */
 .table-headP {
   background-color: #434141;
   color: rgb(0, 0, 0);
@@ -456,8 +384,6 @@
   padding: 2px;
   width: 150px;
 }
-
-/* Estilo para las celdas de la tabla */
 .tableTratamientoP th, .tableTratamientoP td {
   border: 1px solid #ccc;
   text-align: center;
@@ -465,22 +391,16 @@
   font-size: 9px;
   width: 90px;
 }
-
-/* Estilo para las filas impares */
 .tableTratamientoP tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
-
-/* Estilo para las celdas de fecha (anteriormente formateadas) */
 .tableTratamientoP td.table-cell {
   width: 120px;
   background-color: #f2f2f2;
 }
-
 .mostrar {
   display: table-row; /* Muestra la fila */
 }
-
 .ocultar {
   display: none; /* Oculta la fila */
 }
