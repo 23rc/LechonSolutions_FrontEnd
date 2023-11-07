@@ -86,7 +86,7 @@ export class ReportesventasComponent {
     doc.save('Informe_Ventas.pdf');
   }
   ngOnInit() {
-    this.http.get<Venta[]>('http://localhost:3000/ventas').subscribe(data => {
+    this.http.get<Venta[]>('https://lechonsolutionsbackend-production.up.railway.app/ventas').subscribe(data => {
       // Procesa los datos para el gráfico
       const labels = data.map(venta => venta.codigo_camada);
       const totals = data.map(venta => venta.total);
@@ -118,7 +118,7 @@ export class ReportesventasComponent {
     });
 
      // Segundo informe: Obtener los datos de ventas mensuales desde tu servidor
-     this.http.get<VentaMensual[]>('http://localhost:3000/ventas/ventas-mensuales').subscribe(data => {
+     this.http.get<VentaMensual[]>('https://lechonsolutionsbackend-production.up.railway.app/ventas/ventas-mensuales').subscribe(data => {
     // Procesa los datos para el segundo gráfico
     const months = data.map(item => item.month);
     const monthlyTotals = data.map(item => item.total);

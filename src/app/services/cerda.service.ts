@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class CerdaService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,14 +18,14 @@ export class CerdaService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/cerda');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/cerda');
 }
 
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/cerda/cerdaInsertar`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/cerda/cerdaInsertar`, contenedorLocal);
 }
 delete(id: number) {
-  return this.http.delete(`http://localhost:3000/cerda/cerdaEliminar/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/cerda/cerdaEliminar/${id}`);
 }
 getById(id: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/cerda/editarCerda/${id}`);

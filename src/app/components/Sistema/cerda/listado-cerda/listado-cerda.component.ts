@@ -225,8 +225,6 @@ get filtered() {
   });
 }
 
-
-
 get visible() {
   const startIndex = this.currentPage * this.pageSize;
   const endIndex = startIndex + this.pageSize;

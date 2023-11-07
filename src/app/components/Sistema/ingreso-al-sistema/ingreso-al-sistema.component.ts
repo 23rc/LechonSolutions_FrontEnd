@@ -75,7 +75,7 @@ export class IngresoAlSistemaComponent implements OnInit{
 
  
   ngOnInit():void {
-    this.http.get('http://localhost:3000/user/userStatusData').subscribe((data: any) => { // Cambia "data: any[]" a "data: any"
+    this.http.get('https://lechonsolutionsbackend-production.up.railway.app/user/userStatusData').subscribe((data: any) => { // Cambia "data: any[]" a "data: any"
       this.userData = data;
       this.createChart();
 

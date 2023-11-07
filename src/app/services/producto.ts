@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class ProductoService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,13 +18,13 @@ export class ProductoService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/producto');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/producto');
 }
 
 
 
 delete(id: number) {
-  return this.http.delete(`http://localhost:3000/producto/eliminarProducto/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/producto/eliminarProducto/${id}`);
 }
 getById(id: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/producto/editarProducto/${id}`);
@@ -35,10 +35,10 @@ editar(Id: number, contenedorDB: any): Observable<any> {
    return this.http.put(url, contenedorDB);
  }
  actualizarCantidadStock(productoId: number, cantidadVendida: number): Observable<any> {
-  return this.http.put(`http://localhost:3000/producto/actualizarStock/${productoId}`, { cantidadVendida });
+  return this.http.put(`https://lechonsolutionsbackend-production.up.railway.app/producto/actualizarStock/${productoId}`, { cantidadVendida });
 }
 
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/producto/productosInsertar`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/producto/productosInsertar`, contenedorLocal);
 }
 }

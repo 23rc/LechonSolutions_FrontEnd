@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class ControlPartoService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,17 +18,17 @@ export class ControlPartoService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/controlparto');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/controlparto');
 }
 getDataa(): Observable<any[]> {
-  return this.http.get<any[]>('http://localhost:3000/controlparto/control');
+  return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/controlparto/control');
 }
 
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/controlparto/controlPartoInsertar`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/controlparto/controlPartoInsertar`, contenedorLocal);
 }
 delete(id: number) {
-  return this.http.delete(`http://localhost:3000/controlparto/controlPartoEliminar/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/controlparto/controlPartoEliminar/${id}`);
 }
 getById(id: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/controlparto/controlPartoEditar/${id}`);

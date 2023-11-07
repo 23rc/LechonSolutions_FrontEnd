@@ -234,7 +234,7 @@ export class ControlPartoComponent {
     });
   
     try {
-      const response = await this.http.get<number>(`http://localhost:3000/infoparto/obtener-ultimo-parto-info?cerdaId=${contenedorLocal.id_cerda}`).toPromise();
+      const response = await this.http.get<number>(`https://lechonsolutionsbackend-production.up.railway.app/infoparto/obtener-ultimo-parto-info?cerdaId=${contenedorLocal.id_cerda}`).toPromise();
   
       if (response !== undefined) {
         // El backend ha devuelto el último número de parto

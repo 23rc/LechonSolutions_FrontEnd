@@ -9,7 +9,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -33,7 +33,7 @@ actualizarPermisos(permisoId: number, datosPermiso: any): Observable<any> {
   
     
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/user');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/user');
 }
   
 getById(Id: number): Observable<any> {
@@ -70,10 +70,10 @@ editar(Id: number, contenedorDB: any): Observable<any> {
   
 
   insert(contenedorLocal: any) {
-    return this.http.post(`http://localhost:3000/user/userInsertar`, contenedorLocal);
+    return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/user/userInsertar`, contenedorLocal);
   }
   delete(id: number) {
-    return this.http.delete(`http://localhost:3000/user/userEliminacion/${id}`);
+    return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/user/userEliminacion/${id}`);
   }
  
   getDatosGraficaBarra(): Observable<any[]> {

@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class DesteteService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,11 +18,11 @@ export class DesteteService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/destete');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/destete');
 }
 
 delete(id: number) {
-    return this.http.delete(`http://localhost:3000/destete/eliminarDestete/${id}`);
+    return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/destete/eliminarDestete/${id}`);
   }
 
 

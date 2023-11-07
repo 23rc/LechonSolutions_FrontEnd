@@ -132,7 +132,7 @@ obtenerInfoParto() {
   const idCerda = this.usuario.id_cerda;
 
   // Realiza una solicitud al servidor para obtener los datos de info_parto basados en id_cerda
-  this.http.get(`http://localhost:3000/infoparto/info-parto/${idCerda}`).subscribe((infoPartoData: any) => {
+  this.http.get(`https://lechonsolutionsbackend-production.up.railway.app/infoparto/info-parto/${idCerda}`).subscribe((infoPartoData: any) => {
     // Asigna los datos de infoParto a la variable infoPartoData
     this.infoPartoData = infoPartoData;
 
@@ -163,7 +163,7 @@ obtenerDatosParto() {
   console.log('Número de Parto:', numeroParto);
 
   // Realiza una solicitud al servidor para obtener los datos de parto basados en idCerda y numeroParto
-  this.http.get(`http://localhost:3000/infoparto/info-parto/${idCerda}/${numeroParto}`).subscribe((partoData: any) => {
+  this.http.get(`https://lechonsolutionsbackend-production.up.railway.app/infoparto/info-parto/${idCerda}/${numeroParto}`).subscribe((partoData: any) => {
     // Asigna los datos de parto a la variable partoData
     this.partoData = partoData;
 
@@ -200,7 +200,7 @@ abrirModalTratamiento( tratamiento: any) {
 }
 cargarTratamientos() {
   // Lógica para cargar la lista de tratamientos desde tu API o servicio
-  this.http.get('http://localhost:3000/tratamiento').subscribe(
+  this.http.get('https://lechonsolutionsbackend-production.up.railway.app/tratamiento').subscribe(
     (data: any) => {
       this.tratamientos = data;
       console.log('Datos de tratamientos cargados:', data);
@@ -211,7 +211,7 @@ cargarTratamientos() {
   );
 }
 eliminarRegistroTratamiento(id: any) {
-  this.http.delete(`http://localhost:3000/tratamiento/tratamientoEliminar/${id}`).subscribe(
+  this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/tratamiento/tratamientoEliminar/${id}`).subscribe(
     () => {
       // Proceso de eliminación exitoso
       console.log('Registro eliminado con éxito');
@@ -254,7 +254,7 @@ editarTratamiento(contenedorLocal: any) {
 }
 async verificarNumeroPartoEnBackend(idCerda: number, numeroParto: number): Promise<boolean> {
   try {
-    const response = await this.http.get<boolean>(`http://localhost:3000/infoparto/verificar?cerdaId=${idCerda}&numeroParto=${numeroParto}`).toPromise();
+    const response = await this.http.get<boolean>(`https://lechonsolutionsbackend-production.up.railway.app/infoparto/verificar?cerdaId=${idCerda}&numeroParto=${numeroParto}`).toPromise();
 
     if (response !== undefined) {
       // La respuesta no es undefined, es un valor booleano
@@ -330,7 +330,7 @@ abrirModalTemperatura( temperatura: any) {
   });
 }
 eliminarRegistroTemperatura(id: any) {
-  this.http.delete(`http://localhost:3000/temperatura/eliminarTemperatura/${id}`).subscribe(
+  this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/temperatura/eliminarTemperatura/${id}`).subscribe(
     () => {
       // Proceso de eliminación exitoso
       console.log('Registro eliminado con éxito');
@@ -351,7 +351,7 @@ actualizarTablaTemperatura() {
 }
 cargarTemperatura() {
   // Lógica para cargar la lista de tratamientos desde tu API o servicio
-  this.http.get('http://localhost:3000/temperatura').subscribe(
+  this.http.get('https://lechonsolutionsbackend-production.up.railway.app/temperatura').subscribe(
     (data: any) => {
       this.tratamientos = data;
       console.log('Datos de tratamientos cargados:', data);
@@ -468,9 +468,11 @@ abrirModalResumenParto( ResumenParto: any) {
 actualizarTablaResumenParto() {
   this.cargarResumenParto(); // Vuelve a cargar los datos de tratamientos
 }
+
+
 cargarResumenParto() {
   // Lógica para cargar la lista de tratamientos desde tu API o servicio
-  this.http.get('http://localhost:3000/resumenparto').subscribe(
+  this.http.get('https://lechonsolutionsbackend-production.up.railway.app/resumenparto').subscribe(
     (data: any) => {
       this.ResumenParto = data;
       console.log('Datos de tratamientos cargados:', data);
@@ -481,7 +483,7 @@ cargarResumenParto() {
   );
 }
 eliminarRegistroResumenParto(id: any) {
-  this.http.delete(`http://localhost:3000/resumenparto/resumenPartoEliminar/${id}`).subscribe(
+  this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/resumenparto/resumenPartoEliminar/${id}`).subscribe(
     () => {
       // Proceso de eliminación exitoso
       console.log('Registro eliminado con éxito');
@@ -499,7 +501,7 @@ eliminarRegistroResumenParto(id: any) {
   );
 }
 eliminarRegistroParto(id: any) {
-  this.http.delete(`http://localhost:3000/parto/eliminarParto/${id}`).subscribe(
+  this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/parto/eliminarParto/${id}`).subscribe(
     () => {
       // Proceso de eliminación exitoso
       console.log('Registro eliminado con éxito');
@@ -538,7 +540,7 @@ restablecerHoraFinal(usuario: any) {
     console.log('Datos enviados al backend:', datosBorrado);
 
     // Realiza una solicitud DELETE al backend con los datos en el cuerpo
-    this.http.delete('http://localhost:3000/parto/borrarHoraFinal', { body: datosBorrado }).subscribe(
+    this.http.delete('https://lechonsolutionsbackend-production.up.railway.app/parto/borrarHoraFinal', { body: datosBorrado }).subscribe(
       (response: any) => {
         console.log(response.message); // Mensaje exitoso
         // Muestra un mensaje de éxito utilizando Toastr
@@ -572,7 +574,7 @@ actualizarTablaParto() {
 }
 cargarParto() {
   // Lógica para cargar la lista de tratamientos desde tu API o servicio
-  this.http.get('http://localhost:3000/parto').subscribe(
+  this.http.get('https://lechonsolutionsbackend-production.up.railway.app/parto').subscribe(
     (data: any) => {
       this.tratamientos = data;
       console.log('Datos de partos cargados:', data);

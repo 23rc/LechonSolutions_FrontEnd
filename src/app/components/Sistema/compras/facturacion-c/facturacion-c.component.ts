@@ -145,7 +145,7 @@ nuevoProducto={
       this.camadaSeleccionada = undefined;
     } else {
       // Si se selecciona una camada diferente, obtén sus datos
-      this.http.get<Camada>(`http://localhost:3000/camadalechones/camadaLechones/${camadaId}`)
+      this.http.get<Camada>(`https://lechonsolutionsbackend-production.up.railway.app/camadalechones/camadaLechones/${camadaId}`)
         .subscribe((camada: Camada) => {
           console.log('Camada seleccionada:', camada);
           this.camadaSeleccionada = camada;
@@ -163,7 +163,7 @@ nuevoProducto={
       this.productoSeleccionado = undefined;
     } else {
       // Si se selecciona una camada diferente, obtén sus datos
-      this.http.get<Producto>(`http://localhost:3000/producto/producto/${productoId}`)
+      this.http.get<Producto>(`https://lechonsolutionsbackend-production.up.railway.app/producto/producto/${productoId}`)
         .subscribe((producto: Producto) => {
           console.log('Producto seleccionado:', producto);
           this.productoSeleccionado = producto;
@@ -181,7 +181,7 @@ nuevoProducto={
       this.mostrarCamposClienteExistente = false;
     } else {
       // Si se selecciona un cliente diferente, obtén sus datos
-      this.http.get<Cliente>(`http://localhost:3000/cliente/cliente/${clienteId}`)
+      this.http.get<Cliente>(`https://lechonsolutionsbackend-production.up.railway.app/cliente/cliente/${clienteId}`)
         .subscribe((cliente: Cliente) => {
           console.log('Cliente seleccionado:', cliente);
           this.clienteSeleccionado = cliente;
@@ -204,7 +204,7 @@ nuevoProducto={
       this.mostrarCamposProveedorExistente = false;
     } else {
       // Si se selecciona un cliente diferente, obtén sus datos
-      this.http.get<Proveedor>(`http://localhost:3000/proveedor/proveedor/${ProveedorId}`)
+      this.http.get<Proveedor>(`https://lechonsolutionsbackend-production.up.railway.app/proveedor/proveedor/${ProveedorId}`)
         .subscribe((proveedor: Proveedor) => {
           console.log('Cliente seleccionado:', proveedor);
           this.proveedorSelecionado = proveedor;

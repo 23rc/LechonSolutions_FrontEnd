@@ -11,13 +11,6 @@ import { jsPDF } from 'jspdf';
 
 
 
-
-
-
-
-
-
-
 interface Camada {
   id: number;
   codigo_camada: string;
@@ -113,7 +106,7 @@ export class FacturacionComponent implements OnInit {
       this.barracoSeleccionado = undefined;
     } else {
       // Si se selecciona un barraco diferente, obtén sus datos
-      this.http.get<Barraco>(`http://localhost:3000/barraco/barraco/${barracoId}`)
+      this.http.get<Barraco>(`https://lechonsolutionsbackend-production.up.railway.app/barraco/barraco/${barracoId}`)
         .subscribe((barraco: Barraco) => {
           console.log('Barraco seleccionado:', barraco);
           this.barracoSeleccionado = barraco;
@@ -130,7 +123,7 @@ export class FacturacionComponent implements OnInit {
       this.camadaSeleccionada = undefined;
     } else {
       // Si se selecciona una camada diferente, obtén sus datos
-      this.http.get<Camada>(`http://localhost:3000/camadalechones/camadaLechones/${camadaId}`)
+      this.http.get<Camada>(`https://lechonsolutionsbackend-production.up.railway.app/camadalechones/camadaLechones/${camadaId}`)
         .subscribe((camada: Camada) => {
           console.log('Camada seleccionada:', camada);
           this.camadaSeleccionada = camada;
@@ -149,7 +142,7 @@ export class FacturacionComponent implements OnInit {
       this.mostrarCamposClienteExistente = false;
     } else {
       // Si se selecciona un cliente diferente, obtén sus datos
-      this.http.get<Cliente>(`http://localhost:3000/cliente/cliente/${clienteId}`)
+      this.http.get<Cliente>(`https://lechonsolutionsbackend-production.up.railway.app/cliente/cliente/${clienteId}`)
         .subscribe((cliente: Cliente) => {
           console.log('Cliente seleccionado:', cliente);
           this.clienteSeleccionado = cliente;

@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class CamadaLechonesService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,14 +18,14 @@ export class CamadaLechonesService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/camadalechones');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/camadalechones');
 }
 
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/camadalechones/insertarCamada`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/camadalechones/insertarCamada`, contenedorLocal);
 }
 actualizarCantidadLechones(camadaId: number, cantidadVendida: number): Observable<any> {
-  return this.http.put(`http://localhost:3000/camadalechones/actualizarCantidad/${camadaId}`, { cantidadVendida });
+  return this.http.put(`https://lechonsolutionsbackend-production.up.railway.app/camadalechones/actualizarCantidad/${camadaId}`, { cantidadVendida });
 }
 
 getById(id: number): Observable<any> {
@@ -38,7 +38,7 @@ editar(Id: number, contenedorDB: any): Observable<any> {
  }
 
  delete(id: number) {
-  return this.http.delete(`http://localhost:3000/camadalechones/camada-lechones/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/camadalechones/camada-lechones/${id}`);
 }
  
 }

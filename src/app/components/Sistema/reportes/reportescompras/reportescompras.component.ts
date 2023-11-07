@@ -90,7 +90,7 @@ export class ReportescomprasComponent {
 
 
   ngOnInit() {
-    this.http.get<Compra[]>('http://localhost:3000/compras').subscribe(data => {
+    this.http.get<Compra[]>('https://lechonsolutionsbackend-production.up.railway.app/compras').subscribe(data => {
       // Procesa los datos para el gráfico de compras
       const labels = data.map(compra => compra.nombreProducto);
       const totals = data.map(compra => compra.total);
@@ -122,7 +122,7 @@ export class ReportescomprasComponent {
     });
 
 
-    this.http.get<CompraMensual[]>('http://localhost:3000/compras/compras-mensuales').subscribe(data => {
+    this.http.get<CompraMensual[]>('https://lechonsolutionsbackend-production.up.railway.app/compras/compras-mensuales').subscribe(data => {
       const months = data.map(item => item.month);
       const monthlyTotals = data.map(item => item.total);
 

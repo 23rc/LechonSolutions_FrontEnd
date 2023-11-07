@@ -47,23 +47,23 @@ export class CrearControlComponent  implements OnInit{
 
     ngOnInit() {
       // Llama a las rutas del backend para obtener datos de cerdas y barracos
-      this.http.get('http://localhost:3000/controlcerda/cerdas').subscribe((data: any) => {
+      this.http.get('https://lechonsolutionsbackend-production.up.railway.app/controlcerda/cerdas').subscribe((data: any) => {
         this.cerdasList = data;
         console.log('Contenido de this.cerdasList:', this.cerdasList);
       });
   
-      this.http.get('http://localhost:3000/controlcerda/barracos').subscribe((data: any) => {
+      this.http.get('https://lechonsolutionsbackend-production.up.railway.app/controlcerda/barracos').subscribe((data: any) => {
         this.barracosList = data;
 
         
       });
-      this.http.get('http://localhost:3000/controlcerda/pachas').subscribe((data: any) => {
+      this.http.get('https://lechonsolutionsbackend-production.up.railway.app/controlcerda/pachas').subscribe((data: any) => {
         this.pachasList = data;
 
         
       });
 
-      this.http.get('http://localhost:3000/controlcerda/productos').subscribe((data: any) => {
+      this.http.get('https://lechonsolutionsbackend-production.up.railway.app/controlcerda/productos').subscribe((data: any) => {
         this.productosList = data;
 
         

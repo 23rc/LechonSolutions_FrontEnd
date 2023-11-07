@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class ComprasService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,13 +18,13 @@ export class ComprasService {
     ) {}
   
     getData(): Observable<any[]> {
-        return this.http.get<any[]>('http://localhost:3000/compras');
+        return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/compras');
      }
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/compras/insertarCompras`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/compras/insertarCompras`, contenedorLocal);
 }
 delete(id: number) {
-  return this.http.delete(`http://localhost:3000/compras/eliminarCompra/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/compras/eliminarCompra/${id}`);
 }
  
 

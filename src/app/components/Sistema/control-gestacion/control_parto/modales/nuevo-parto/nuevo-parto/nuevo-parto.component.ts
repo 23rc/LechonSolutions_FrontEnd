@@ -50,7 +50,7 @@ export class NuevoPartoComponent {
     console.log('Número de Parto:', numeroParto);
   
     // Realiza una solicitud al servidor para obtener los datos de parto basados en idCerda y numeroParto
-    this.http.get(`http://localhost:3000/infoparto/info-parto/${idCerda}/${numeroParto}`).subscribe((partoData: any) => {
+    this.http.get(`https://lechonsolutionsbackend-production.up.railway.app/infoparto/info-parto/${idCerda}/${numeroParto}`).subscribe((partoData: any) => {
       // Asigna los datos de parto a la variable partoData
       this.partoData = partoData;
   

@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class TemperaturaService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,11 +18,11 @@ export class TemperaturaService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/temperatura');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/temperatura');
 }
 
 insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/temperatura/insertarTemperatura`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/temperatura/insertarTemperatura`, contenedorLocal);
 }
 
 getById(id: number): Observable<any> {

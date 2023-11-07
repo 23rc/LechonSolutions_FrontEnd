@@ -10,7 +10,7 @@ import jwt_decode, { JwtDecodeOptions } from 'jwt-decode';
   providedIn: 'root'
 })
 export class ProveedorService {
-  private apiUrl = 'http://localhost:3000'; // URL para operaciones relacionadas con usuarios
+  private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app'; // URL para operaciones relacionadas con usuarios
 
   constructor(
     private http: HttpClient,
@@ -18,15 +18,15 @@ export class ProveedorService {
     ) {}
   
 getData(): Observable<any[]> {
-   return this.http.get<any[]>('http://localhost:3000/proveedor');
+   return this.http.get<any[]>('https://lechonsolutionsbackend-production.up.railway.app/proveedor');
 }
 getLastInsertId(): Observable<number> {
-  return this.http.get<number>('http://localhost:3000/proveedor/lastInsertId'); // Ruta en tu backend para obtener el último ID
+  return this.http.get<number>('https://lechonsolutionsbackend-production.up.railway.app/proveedor/lastInsertId'); // Ruta en tu backend para obtener el último ID
 }
 
 
 delete(id: number) {
-  return this.http.delete(`http://localhost:3000/proveedor/eliminarProveedor/${id}`);
+  return this.http.delete(`https://lechonsolutionsbackend-production.up.railway.app/proveedor/eliminarProveedor/${id}`);
 }
 getById(id: number): Observable<any> {
   return this.http.get<any>(`${this.apiUrl}/proveedor/editarProveedor/${id}`);
@@ -37,6 +37,6 @@ editar(Id: number, contenedorDB: any): Observable<any> {
    return this.http.put(url, contenedorDB);
  }
  insert(contenedorLocal: any) {
-  return this.http.post(`http://localhost:3000/proveedor/proveedorInsertar`, contenedorLocal);
+  return this.http.post(`https://lechonsolutionsbackend-production.up.railway.app/proveedor/proveedorInsertar`, contenedorLocal);
 }
 }

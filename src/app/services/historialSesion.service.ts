@@ -13,14 +13,14 @@ interface HistorialSesion {
   providedIn: 'root'
 })
 export class HistorialSesionService {
-    private apiUrl = 'http://localhost:3000';
+    private apiUrl = 'https://lechonsolutionsbackend-production.up.railway.app';
 
     constructor(private http: HttpClient) {}
   
     obtenerHistorialDeSesionPorUsuario(userId: number): Observable<HistorialSesion[]> {
         console.log('Enviando solicitud para obtener historial de sesiones del usuario con ID:', userId);
       // Reemplaza 'URL_DE_TU_API' con la URL real de tu API
-      return this.http.get<HistorialSesion[]>(`http://localhost:3000/sesion/historial/${userId}`);
+      return this.http.get<HistorialSesion[]>(`https://lechonsolutionsbackend-production.up.railway.app/sesion/historial/${userId}`);
     }
 }
 
