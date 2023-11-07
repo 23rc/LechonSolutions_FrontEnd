@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private URL = 'http://localhost:3000';
+  private URL = 'https://lechonsolutionsbackend-production.up.railway.app';
   
 
   constructor(
