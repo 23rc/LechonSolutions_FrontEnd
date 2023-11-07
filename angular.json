@@ -47,6 +47,16 @@
               ],
               "outputHashing": "all"
             },
+            "analyze": {
+              "buildOptimizer": true,
+              "sourceMap": true,
+              "namedChunks": false,
+              "aot": true,
+              "vendorChunk": false,
+              "extractLicenses": true,
+              "statsJson": true
+            },
+            
             "development": {
               "buildOptimizer": false,
               "optimization": false,
