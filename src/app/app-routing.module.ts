@@ -3,10 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 /**PAGINA WEB */
 import { InicioComponent } from './components/Pagina_Web/inicio/inicio.component';
-import { ServiciosComponent } from './components/Pagina_Web/servicios/servicios.component';
-import { GaleriaComponent } from './components/Pagina_Web/galeria/galeria.component';
-import { QuienesSomosComponent } from './components/Pagina_Web/quienes-somos/quienes-somos.component';
-import { ContactosComponent } from './components/Pagina_Web/contactos/contactos.component';
 /**AUTENTICACION */
 import { LoginComponent } from './components/Autenticacion/login/login.component';
 /**SISTEMA */
@@ -41,10 +37,6 @@ import { EditarControlPartoComponent } from './components/Sistema/control-gestac
 const routes: Routes = [
   /**PAGINA WEB */
   { path: 'inicio', component: InicioComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: 'galeria', component: GaleriaComponent },
-  { path: 'QuienesSomos', component: QuienesSomosComponent },
-  { path: 'contactos', component: ContactosComponent },
   /**AUTENTICACION */
   { path: 'login', component: LoginComponent },
   /**SISTEMA */
