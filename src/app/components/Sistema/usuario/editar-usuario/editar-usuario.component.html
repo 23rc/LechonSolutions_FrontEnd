@@ -124,11 +124,6 @@
             <input type="text" id="telefono" name="telefono" [(ngModel)]="usuario.telefono" class="form-control" placeholder="Telefono">
           </div>
           <div class="form-group1">
-            <input type="file" id="imagenPerfil" (change)="onImageEdit($event)" name="imagenPerfil" class="form-control" accept="image/*">
-            <!-- Utiliza la propiedad [src] para mostrar la imagen -->
-            <img class="perfil-image" [src]="usuario.imagenPerfil || defaultImageUrl" alt="Imagen de Perfil">
-          </div>
-          <div class="form-group1">
             <label>Estado de Cuenta:</label>
             <div class="position-relative">
               <select id="estadoCuenta" [(ngModel)]="usuario.estadoCuenta" name="estadoCuenta" class="form-control" required placeholder="Estado de Cuenta"

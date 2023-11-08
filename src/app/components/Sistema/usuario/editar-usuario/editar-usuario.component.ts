@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'; // Importa NgbActiveModal para controlar el modal
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import Compressor from 'compressorjs';
+
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -53,7 +53,6 @@ export class EditarUsuarioComponent implements OnInit {
       correo: this.usuario.correo,
       fechaRegistro: this.usuario.fechaRegistro,
       telefono: this.usuario.telefono,
-      imagenPerfil: this.usuario.imagenPerfil,
       estadoCuenta: this.usuario.estadoCuenta,
       consulta: this.usuario.consulta ? 'Si' : 'No',
       registro: this.usuario.registro ? 'Si' : 'No',
@@ -98,48 +97,5 @@ export class EditarUsuarioComponent implements OnInit {
       this.activeModal.close('Cancelado');
    
   }
-  onImageEdit(event: any) {
-    const file = event.target.files[0]; // Obtener el archivo seleccionado
-
-
-    const options = {
-      maxWidth: 70, // Ancho máximo deseado en píxeles
-      maxHeight: 700, // Altura máxima deseada en píxeles
-      quality: 0.3, // Calidad de compresión (entre 0 y 1)
-      mimeType: 'auto', // Tipo de imagen de salida (auto selecciona automáticamente)
-      size: 2000, // Tamaño máximo en bytes después de la compresión (4000 bytes en este caso)
-    };
-  
-
-    
-    // Utilizamos la biblioteca Compressor para comprimir la imagen
-    new Compressor(file, {
-      ...options,
-      success: (result) => {
-        console.log('Tamaño antes de la compresión:', file.size, 'bytes');
-        console.log('Tamaño después de la compresión:', result.size, 'bytes');
-  
-        const reader = new FileReader();
-  
-        // Cuando la lectura del archivo se complete, e.target.result contendrá la imagen comprimida en base64
-        reader.onload = (e: any) => {
-          // Asignamos la imagen comprimida al atributo 'imagenPerfil' del modelo de usuario
-          this.usuario.imagenPerfil = e.target.result;
-        };
-  
-        // Leemos la imagen comprimida como URL en formato base64
-        reader.readAsDataURL(result);
-      },
-      error: (err) => {
-        console.error(err.message);
-      },
-    });
-  }
-  
-  sanitizeImage(imageUrl: string): SafeUrl {
-    // Utiliza DomSanitizer para sanear la URL
-    return this.sanitizer.bypassSecurityTrustUrl(imageUrl);
-  }
-
 
 }

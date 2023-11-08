@@ -11,8 +11,7 @@ import { ContactosComponent } from './components/Pagina_Web/contactos/contactos.
 import { LoginComponent } from './components/Autenticacion/login/login.component';
 /**SISTEMA */
 import { IngresoAlSistemaComponent } from './components/Sistema/ingreso-al-sistema/ingreso-al-sistema.component'
-import { AuthGuard } from './guards/auth.guard';
-import { RoleGuard } from './guards/role.guard';
+
 /**USUARIOS */
 import { CrearUsuarioComponent } from './components/Sistema/usuario/crear-usuario/crear-usuario.component';
 import { ListadoUsuariosComponent } from './components/Sistema/usuario/listado-usuarios/listado-usuarios.component';

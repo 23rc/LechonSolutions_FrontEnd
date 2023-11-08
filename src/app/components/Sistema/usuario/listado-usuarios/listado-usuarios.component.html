@@ -59,10 +59,6 @@
                   <span>Teléfono</span>
                   <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'telefono' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'telefono' && sortDirection === -1}">&#8597;</span>
                 </th>
-                <th (click)="sortTable('imagenPerfil')">
-                  <span>Imagen de Perfil</span>
-                  <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'imagenPerfil' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'imagenPerfil' && sortDirection === -1}">&#8597;</span>
-                </th>
                 <th (click)="sortTable('estadoCuenta')">
                   <span>Estado de Cuenta</span>
                   <span class="sort-icon" [ngClass]="{'fa-chevron-up': sortedColumn === 'estadoCuenta' && sortDirection === 1, 'fa-chevron-down': sortedColumn === 'estadoCuenta' && sortDirection === -1}">&#8597;</span>
@@ -85,9 +81,6 @@
                   {{ contenedorLocal.ultimoInicioSesion ? (contenedorLocal.ultimoInicioSesion | date:'yyyy-MM-dd') : 'null' }}
                 </td>
                 <td class="table-cell">{{ contenedorLocal.telefono || 'null' }}</td>
-                <td class="table-cell">
-                  <img class="perfil-image" [src]="sanitizeImage(contenedorLocal.imagenPerfil)" alt="Imagen de Perfil">
-                </td>
                 <td class="table-cell">{{ contenedorLocal.estadoCuenta || 'null' }}</td>
                 <td class="table-cell-acciones">
                   <div class="button-image-container">
