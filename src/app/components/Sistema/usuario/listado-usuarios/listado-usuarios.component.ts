@@ -26,7 +26,7 @@ import { ToastrService, IndividualConfig } from 'ngx-toastr';
 @Component({
   selector: 'app-listado-usuarios',
   templateUrl: './listado-usuarios.component.html',
-  styleUrls: ['./listado-usuarios.component.css']
+  styleUrls: ['./listado-usuarios.component.css','./listado-usuarios2.component.css','./listado-usuarios3.component.css']
 })
 
 export class ListadoUsuariosComponent {
